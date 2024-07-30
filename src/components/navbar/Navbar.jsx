@@ -21,7 +21,7 @@ function Navbar() {
 			<img
 				src='/images/vayko-round-logo.png'
 				onClick={() => navigate('/')}
-				className='object-contain md:size-16 size-10 hover:scale-105 duration-300 cursor-pointer'
+				className='object-contain md:size-12 size-10 hover:scale-105 duration-300 cursor-pointer'
 				alt='logo'
 			/>
 			<h1></h1>

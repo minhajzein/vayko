@@ -30,7 +30,7 @@ function WinnersShowcase() {
 						<h1 className='text-[13px] md:text-xl font-bold capitalize'>
 							next winner?
 						</h1>
-						<p className='text-[#FF3245] md:text-lg capitalize text-[8px]'>
+						<p className='text-[#FF3245] md:text-sm capitalize text-[8px]'>
 							amazing prizes!
 						</p>
 					</div>
@@ -54,7 +54,7 @@ function WinnersShowcase() {
 						<h1 className='text-[13px] md:text-xl font-bold capitalize'>
 							next winner?
 						</h1>
-						<p className='text-[#FF3245] md:text-lg capitalize text-[8px]'>
+						<p className='text-[#FF3245] md:text-sm capitalize text-[8px]'>
 							amazing prizes!
 						</p>
 					</div>
@@ -79,7 +79,7 @@ function WinnersShowcase() {
 						<h1 className='text-[13px] md:text-xl font-bold capitalize'>
 							next winner?
 						</h1>
-						<p className='text-[#FF3245] md:text-lg capitalize text-[8px]'>
+						<p className='text-[#FF3245] md:text-sm capitalize text-[8px]'>
 							amazing prizes!
 						</p>
 					</div>

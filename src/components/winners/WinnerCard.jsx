@@ -3,6 +3,7 @@ import WinnerGold from '/svgs/Gold_Star.svg'
 //imports................................................................
 
 function WinnerCard({ winner }) {
+	console.log(winner)
 	return (
 		<div className='flex-row-reverse flex'>
 			<div className='bg-white p-1 md:p-4 w-[90%] rounded-lg flex flex-col items-center'>
@@ -20,9 +21,7 @@ function WinnerCard({ winner }) {
 				</div>
 				<div className='flex items-center flex-col p-1'>
 					<h1 className='text-[13px] md:text-xl font-bold'>{winner.name}</h1>
-					<p className='text-[#FF3245] md:text-lg text-[8px]'>
-						{winner.address}
-					</p>
+					<p className='text-[#FF3245] md:text-sm text-[8px]'>{winner.prize}</p>
 				</div>
 			</div>
 		</div>
