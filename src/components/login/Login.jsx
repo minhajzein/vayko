@@ -66,7 +66,7 @@ function Login() {
 						alt='logo'
 					/>
 				</div>
-				<h1 className='text-white z-10 capitalize text-center font-rubic text-3xl font-bold md:text-5xl'>
+				<h1 className='text-white z-10 capitalize text-center font-skranji text-3xl font-bold md:text-5xl'>
 					"vayko will change <br />
 					your life"
 				</h1>

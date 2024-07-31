@@ -8,7 +8,18 @@ export default {
     extend: {
       fontFamily: {
         'raleway': ['"Raleway", sans-serif'],
-        'rubic': ['"Rubik Mono One", monospace']
+        'rubic': ['"Rubik Mono One", monospace'],
+        'skranji': ['"Skranji", system-ui'],
+        'silkscreen': ['"Silkscreen", sans-serif']
+      },
+      keyframes: {
+        'infinite-carousel': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' }
+        }
+      },
+      animation: {
+        'infinite-carousel': 'infinite-carousel 5s infinite linear'
       }
     },
   },

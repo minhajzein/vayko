@@ -24,7 +24,7 @@ function Navbar() {
 				className='object-contain md:size-12 size-10 hover:scale-105 duration-300 cursor-pointer'
 				alt='logo'
 			/>
-			<h1 className='capitalize font-rubic hidden md:block'>
+			<h1 className='capitalize font-skranji hidden md:block'>
 				vayko will change your life
 			</h1>
 			<div className='hidden md:flex items-center gap-6'>

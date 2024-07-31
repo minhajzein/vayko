@@ -10,6 +10,7 @@ import DrawTimer from '../../components/timer/DrawTimer'
 import Winners from '../../components/winners/Winners'
 import OurProducts from '../../components/products/our-products/OurProducts'
 import MobileBanner from '../../components/banners/MobileBanner'
+import NextDraw from '../../components/timer/NextDraw'
 
 //imports................................................................................................................................
 
@@ -20,6 +21,7 @@ function LandingPage() {
 			<ExcitingPrices />
 			<MobileBanner />
 			<DrawTimer />
+			<NextDraw />
 			<Categories title={true} />
 			<OurProducts />
 			<Winners />
