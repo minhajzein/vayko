@@ -14,6 +14,7 @@ import FaqPage from '../pages/user/FaqPage'
 import PrivacyPolicyPage from '../pages/user/PricacyPolicyPage'
 import TermsAndConditionsPage from '../pages/user/TermsAndConditionsPage'
 import RequireAuth from '../components/private/RequireAuth'
+import RefundPolicyPage from '../pages/user/RefundPolicyPage'
 
 //imports.................................................................
 
@@ -36,6 +37,7 @@ function UserRoutes() {
 			<Route path='faq' element={<FaqPage />} />
 			<Route path='privacy-policy' element={<PrivacyPolicyPage />} />
 			<Route path='terms-and-conditions' element={<TermsAndConditionsPage />} />
+			<Route path='refund-policy' element={<RefundPolicyPage />} />
 		</Routes>
 	)
 }

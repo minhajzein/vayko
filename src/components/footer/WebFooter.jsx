@@ -1,6 +1,10 @@
 import React from 'react'
 import { FaYoutube } from 'react-icons/fa'
-import { FaSquareInstagram, FaSquareThreads, FaSquareXTwitter } from 'react-icons/fa6'
+import {
+	FaSquareInstagram,
+	FaSquareThreads,
+	FaSquareXTwitter,
+} from 'react-icons/fa6'
 import { ImFacebook2 } from 'react-icons/im'
 import { NavLink } from 'react-router-dom'
 
@@ -8,13 +12,13 @@ import { NavLink } from 'react-router-dom'
 
 function WebFooter() {
 	return (
-		<div className='hidden md:flex flex-col gap-10 bg-[#212529] text-white p-16'>
-			<div className='grid m-auto grid-cols-5 gap-16 w-[70%]'>
+		<div className='hidden md:flex flex-col gap-10 bg-[#212529] text-white p-12'>
+			<div className='grid m-auto grid-cols-5 gap-16 w-[80%]'>
 				<div className='flex flex-col gap-3 justify-center items-center'>
 					<img
 						src='/images/logwhite.png'
-						className='h-24 object-contain'
-						alt=''
+						className='h-16 object-contain'
+						alt='logo'
 					/>
 					<div className='flex gap-1 text-xl m-auto text-white'>
 						<a
@@ -55,8 +59,8 @@ function WebFooter() {
 					</div>
 				</div>
 				<div className='flex flex-col gap-2'>
-					<h1 className='font-bold text-xl'>Company</h1>
-					<ul className='flex flex-col gap-1'>
+					<h1 className='font-bold'>Company</h1>
+					<ul className='flex flex-col gap-1 text-xs'>
 						<NavLink
 							className={({ isActive }) =>
 								isActive ? 'text-[#FF0000]' : 'text-white'
@@ -76,8 +80,8 @@ function WebFooter() {
 					</ul>
 				</div>
 				<div className='flex flex-col gap-2'>
-					<h1 className='font-bold text-xl'>Other links</h1>
-					<ul className='flex flex-col gap-1'>
+					<h1 className='font-bold'>Other links</h1>
+					<ul className='flex flex-col gap-1 text-xs'>
 						<NavLink
 							className={({ isActive }) =>
 								isActive ? 'text-[#FF0000]' : 'text-white'
@@ -98,8 +102,8 @@ function WebFooter() {
 					</ul>
 				</div>
 				<div className='flex flex-col gap-2'>
-					<h1 className='font-bold text-xl'>Policies</h1>
-					<ul className='flex flex-col gap-2'>
+					<h1 className='font-bold'>Policies</h1>
+					<ul className='flex flex-col gap-2 text-xs'>
 						<NavLink
 							className={({ isActive }) =>
 								isActive ? 'text-[#FF0000]' : 'text-white'
@@ -116,11 +120,19 @@ function WebFooter() {
 						>
 							<li className='capitalize'>Terms & Conditions</li>
 						</NavLink>
+						<NavLink
+							className={({ isActive }) =>
+								isActive ? 'text-[#FF0000]' : 'text-white'
+							}
+							to='/refund-policy'
+						>
+							<li className='capitalize'>Refund & Cancelation</li>
+						</NavLink>
 					</ul>
 				</div>
 				<div className='flex flex-col gap-2'>
-					<h1 className='font-bold text-xl'>Contact</h1>
-					<ul className='flex flex-col gap-1'>
+					<h1 className='font-bold'>Contact</h1>
+					<ul className='flex flex-col gap-1 text-xs'>
 						<li>+91 9395 200700</li>
 						<li>Kannur, Kerala</li>
 					</ul>

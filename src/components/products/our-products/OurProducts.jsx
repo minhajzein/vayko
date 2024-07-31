@@ -17,12 +17,12 @@ function OurProducts() {
 		<div className='flex w-full md:px-[80px] px-4 mb-4 md:mb-0 pt-5'>
 			<div className='w-full flex flex-col'>
 				<div className='w-full flex justify-between'>
-					<h1 className='capitalize font-bold text-sm md:text-2xl text-[#FF2A3E]'>
+					<h1 className='capitalize font-bold text-xs md:text-2xl text-[#FF2A3E]'>
 						Win a Scooter 🛵 With Every Purchase!
 					</h1>
 					<Link
 						to='/products'
-						className='flex justify-center items-center md:text-xl text-xs gap-2 capitalize text-[#FF2A3E]'
+						className='md:flex hidden justify-center items-center md:text-xl text-xs md:gap-2  capitalize text-[#FF2A3E]'
 					>
 						view all <img src='/svgs/arrow-right-red.svg' className='' alt='' />
 					</Link>

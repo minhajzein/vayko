@@ -126,7 +126,7 @@ function FastCheckout({ product }) {
 				{isLoading || loading ? (
 					<CgSpinner className='animate-spin m-auto' />
 				) : (
-					<div className='m-auto flex items-center gap-2'>
+					<div className='m-auto flex items-center text-xs md:text-sm gap-2'>
 						<IoFlashOutline className='animate-ping' />
 						<h1>Buy Now</h1>
 					</div>

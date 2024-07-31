@@ -2,7 +2,7 @@ import ProductCardSkelton from './PoductCardSkelton'
 
 function NowSellingProductSkelton() {
 	return (
-		<div className='grid md:grid-cols-5 gap-8 p-2'>
+		<div className='grid md:grid-cols-5 grid-cols-2 gap-8 p-2'>
 			<ProductCardSkelton />
 			<ProductCardSkelton />
 			<ProductCardSkelton />
