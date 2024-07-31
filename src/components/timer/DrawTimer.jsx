@@ -41,7 +41,7 @@ function DrawTimer() {
 						shop and win big with vayko.
 					</p>
 				</div>
-				<div className='h-full flex gap-2 z-30'>
+				<div className='h-full flex gap-2 z-20'>
 					<div className='bg-white rounded-lg p-1 flex w-[50px] md:w-[100px] relative flex-col justify-center px-4 items-center text-[#FF2A3E] md:p-1'>
 						<h1 className='font-bold text-xl md:text-5xl'>
 							{isLoading ? (
