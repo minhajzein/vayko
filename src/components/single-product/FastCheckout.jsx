@@ -134,7 +134,7 @@ function FastCheckout({ product }) {
 			</button>
 			{isOpen && (
 				<div className='fixed top-0 left-0 z-30 w-screen md:p-10 flex h-dvh bg-white/70'>
-					<div className='m-auto flex flex-col h-[80%] hover:overflow-y-auto overflow-hidden scrollbar-hidden bg-white shadow-xl rounded-xl p-5'>
+					<div className='m-auto flex flex-col md:h-[100%] h-[80%] md:w-[40%] w-[90%] z-50 hover:overflow-y-auto overflow-hidden scrollbar-hidden bg-white shadow-xl rounded-xl p-5'>
 						<div className='flex backdrop-blur-sm bg-white/50 w-full sticky top-0 z-10 justify-between gap-5 p-5'>
 							<h1 className='font-semibold capitalize line-clamp-2'>
 								{product?.title}
@@ -150,7 +150,7 @@ function FastCheckout({ product }) {
 							<div className='size-full overflow-hidden rounded-lg relative'>
 								<img
 									src={product?.photos[0]}
-									className='w-full md:h-64 duration-300 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
+									className='w-full md:h-40 duration-300 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
 									alt='product'
 								/>
 							</div>
@@ -159,14 +159,19 @@ function FastCheckout({ product }) {
 									<>
 										<h1 className='font-bold text-[#FE2B3E]'>
 											₹
-											{Number(product.price) -
-												(Number(product.price) * Number(product.discount)) /
-													100}
+											{(
+												Number(product.price) -
+												(Number(product.price) * Number(product.discount)) / 100
+											).toFixed()}
 										</h1>
-										<del className='opacity-50'>₹{product.price}</del>
+										<del className='opacity-50'>
+											₹{Number(product.price).toFixed()}
+										</del>
 									</>
 								) : (
-									<h1 className='font-bold text-[#FE2B3E]'>₹{product.price}</h1>
+									<h1 className='font-bold text-[#FE2B3E]'>
+										₹{Number(product.price).toFixed()}
+									</h1>
 								)}
 							</div>
 							<ShippingAddress setShippingAddressId={setShippingAddressId} />

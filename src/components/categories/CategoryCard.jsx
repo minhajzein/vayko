@@ -23,12 +23,19 @@ function CategoryCard({ id }) {
 			onClick={handleClick}
 			className='flex flex-col gap-3 group items-center cursor-pointer w-[69px] md:w-[150px]'
 		>
-			<div className='rounded-full relative shadow-lg duration-300 size-[55px] md:size-[130px]'>
+			<div className='rounded-full relative  bg-red-500 shadow-inner shadow-gray-400 duration-300  size-[55px] md:size-[130px]'>
 				<img
 					className='rounded-full size-full object-cover'
 					src={category.photo}
 					alt='category'
 				/>
+				{category.status === 'inactive' && (
+					<img
+						src='/images/lock.png'
+						className='absolute top-0 bg-red-400/50 rounded-full w-full'
+						alt='lock'
+					/>
+				)}
 			</div>
 			<h1 className='text-black duration-300 md:font-semibold text-[10px] md:text-lg max-w-full md:truncate capitalize'>
 				{category.title.split(' ')[1]}

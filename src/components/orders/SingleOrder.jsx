@@ -5,16 +5,15 @@ import { PiPrinter } from 'react-icons/pi'
 //imports................................................................................................
 
 function SingleOrder({ order }) {
-	console.log(order)
 	return (
-		<div className='w-full flex flex-col gap-4 shadow-lg p-6 rounded-xl'>
-			<div className='flex justify-between items-center'>
+		<div className='w-full flex flex-col  gap-4 shadow-lg p-6 rounded-xl'>
+			<div className='flex md:flex-row flex-col gap-2 justify-between items-center'>
 				<div className='l'>
-					<h1 className='font-semibold uppercase text-lg'>
+					<h1 className='font-semibold uppercase  md:text-lg'>
 						Order#: {order.order_number}
 					</h1>
 				</div>
-				<div className='flex flex-col'>
+				<div className='flex flex-col items-center'>
 					<h1 className='uppercase'>order placed on</h1>
 					<h1>{new Date(order.updated_at).toLocaleDateString()}</h1>
 				</div>

@@ -17,14 +17,16 @@ function Navbar() {
 	const { data: cartDetails } = useGetCartQuery(user?.id)
 
 	return (
-		<div className='w-full shadow-md md:px-[80px] px-4 sticky top-0 backdrop-blur-xl bg-white/50 z-40 py-4 flex justify-between  items-center'>
+		<div className='w-full shadow-md md:px-[80px] px-4 sticky top-0 backdrop-blur-xl bg-white/50 z-30 py-4 flex justify-between  items-center'>
 			<img
 				src='/images/vayko-round-logo.png'
 				onClick={() => navigate('/')}
 				className='object-contain md:size-12 size-10 hover:scale-105 duration-300 cursor-pointer'
 				alt='logo'
 			/>
-			<h1></h1>
+			<h1 className='capitalize font-rubic hidden md:block'>
+				vayko will change your life
+			</h1>
 			<div className='hidden md:flex items-center gap-6'>
 				<ul className='hidden md:flex gap-6 font-semibold'>
 					<NavLink

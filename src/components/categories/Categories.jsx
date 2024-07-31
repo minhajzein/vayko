@@ -21,7 +21,7 @@ const cates = [
 function Categories({ backgroundColor, title, titleColor }) {
 	const { data, isSuccess, isLoading } = useGetAllCategoriesQuery()
 	const scrollReff = useHorizontalScroll()
-
+	console.log(data?.entities)
 	return (
 		<div className={`max-w-full flex flex-col gap-2 md:px-[80px] md:py-4`}>
 			{isLoading ? (

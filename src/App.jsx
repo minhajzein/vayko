@@ -15,7 +15,7 @@ function App() {
 					<Route path='/*' element={<UserRoutes />} />
 				</Routes>
 			</BrowserRouter>
-			<ToastContainer />
+			<ToastContainer position='top-center' theme='colored' />
 		</Provider>
 	)
 }
