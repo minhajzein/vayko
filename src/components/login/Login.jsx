@@ -67,8 +67,8 @@ function Login() {
 					/>
 				</div>
 				<h1 className='text-white z-10 capitalize text-center font-skranji text-3xl font-bold md:text-5xl'>
-					"vayko will change <br />
-					your life"
+					vayko will change <br />
+					your life
 				</h1>
 			</div>
 			<div className='md:w-[50%] w-full h-[35%] md:h-full flex flex-col capitalize md:gap-5 gap-2 md:justify-center items-center'>

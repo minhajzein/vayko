@@ -1,17 +1,22 @@
 import React from 'react'
+import { FaStarOfLife } from 'react-icons/fa'
 
 //imports................................................................................................
 
 function NextDraw() {
 	return (
-		<div className=' font-silkscreen text-xl py-5 grid grid-flow-col gap-4 overflow-hidden capitalize w-full'>
-			<div className='flex gap-4 animate-infinite-carousel w-full'>
-				<h1 className=''>next draw date: dd/mm/yyyy</h1>
-				<h1>next draw date: dd/mm/yyyy</h1>
-			</div>
-			<div className='flex gap-4 animate-infinite-carousel w-full'>
-				<h1>next draw date: dd/mm/yyyy</h1>
-				<h1>next draw date: dd/mm/yyyy</h1>
+		<div className='md:px-[80px] font-silkscreen text-xs md:text-3xl pb-2 overflow-hidden capitalize w-full'>
+			<div className='w-auto grid grid-flow-col'>
+				<div className='w-screen flex justify-evenly gap-5 animate-infinite-carousel'>
+					<h1 className='w-full'>
+						next draw date: <span className='text-red-500'>coming soon...</span>
+					</h1>
+				</div>
+				<div className='w-screen  flex justify-evenly gap-5 animate-infinite-carousel'>
+					<h1 className='w-full'>
+						next draw date: <span className='text-red-500'>coming soon...</span>
+					</h1>
+				</div>
 			</div>
 		</div>
 	)

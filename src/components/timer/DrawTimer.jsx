@@ -41,8 +41,8 @@ function DrawTimer() {
 						shop and win big with vayko.
 					</p>
 				</div>
-				<div className='h-full flex gap-2 z-20'>
-					<div className='bg-white rounded-lg p-1 flex w-[40px] md:w-[100px] relative flex-col justify-center px-4 items-center text-[#FF2A3E] md:p-1'>
+				<div className='h-full flex gap-2 z-30'>
+					<div className='bg-white rounded-lg p-1 flex w-[50px] md:w-[100px] relative flex-col justify-center px-4 items-center text-[#FF2A3E] md:p-1'>
 						<h1 className='font-bold text-xl md:text-5xl'>
 							{isLoading ? (
 								<CgSpinner className='animate-spin' />
@@ -58,7 +58,7 @@ function DrawTimer() {
 							days
 						</p>
 					</div>
-					<div className='bg-white rounded-lg flex w-[40px] md:w-[100px]  relative  flex-col justify-center px-4 items-center text-[#FF2A3E] md:py-2'>
+					<div className='bg-white rounded-lg flex w-[50px] md:w-[100px]  relative  flex-col justify-center px-4 items-center text-[#FF2A3E] md:py-2'>
 						<h1 className='font-bold text-xl md:text-5xl'>
 							{isLoading ? (
 								<CgSpinner className='animate-spin' />
@@ -74,7 +74,7 @@ function DrawTimer() {
 							hrs
 						</p>
 					</div>
-					<div className='bg-white rounded-lg flex w-[40px] md:w-[100px]  md:min-h-full relative flex-col items-center justify-center px-4 text-[#FF2A3E] md:py-2'>
+					<div className='bg-white rounded-lg flex w-[50px] md:w-[100px]  md:min-h-full relative flex-col items-center justify-center px-4 text-[#FF2A3E] md:py-2'>
 						<h1 className='font-bold text-xl md:text-5xl'>
 							{isLoading ? (
 								<CgSpinner className='animate-spin' />
@@ -90,7 +90,7 @@ function DrawTimer() {
 							min.
 						</p>
 					</div>
-					<div className='bg-white rounded-lg flex w-[40px] md:w-[100px]  md:min-h-full relative flex-col items-center justify-center px-4 text-[#FF2A3E] md:py-2'>
+					<div className='bg-white rounded-lg flex w-[50px] md:w-[100px]  md:min-h-full relative flex-col items-center justify-center px-4 text-[#FF2A3E] md:py-2'>
 						<h1 className='font-bold text-xl md:text-5xl'>
 							{isLoading ? (
 								<CgSpinner className='animate-spin' />
@@ -107,17 +107,17 @@ function DrawTimer() {
 						</p>
 					</div>
 				</div>
-				<p className='md:text-2xl capitalize text-white md:hidden'>
+				<p className='md:text-2xl capitalize z-40 text-center text-white md:hidden'>
 					shop and win big with vayko.
 				</p>
 				<img
 					src='/images/gift_box.png'
-					className='object-contain h-[60%] animate-bounce md:hidden absolute top-1/2 left-0'
+					className='object-contain h-[60%] animate-bounce z-20 md:hidden absolute top-1/2 left-0'
 					alt='gift-box'
 				/>
 				<img
 					src='/images/md-gift-box.png'
-					className='absolute hidden animate-bounce md:block left-0'
+					className='absolute hidden animate-bounce md:block z-20 left-0'
 					alt='md-gift-box'
 				/>
 				<img
