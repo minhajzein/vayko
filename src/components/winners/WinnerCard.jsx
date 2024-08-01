@@ -22,6 +22,7 @@ function WinnerCard({ winner }) {
 					<h1 className='text-[13px] md:text-xl font-bold'>{winner.name}</h1>
 					<p className='text-[#FF3245] md:text-sm text-[8px]'>{winner.prize}</p>
 				</div>
+				{}
 			</div>
 		</div>
 	)

@@ -29,7 +29,7 @@ function CategoryCard({ id }) {
 					alt='category'
 				/>
 				{category.status === 'inactive' && (
-					<CiLock className='absolute hover:animate-bounce-shake top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl border bg-gray-200/50 text-black rounded-full p-1' />
+					<CiLock className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl border bg-gray-200/50 text-black rounded-full p-1' />
 				)}
 			</div>
 			<h1 className='text-black duration-300 md:font-semibold text-[10px] md:text-lg max-w-full md:truncate capitalize'>
