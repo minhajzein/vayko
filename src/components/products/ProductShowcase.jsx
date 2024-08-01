@@ -39,7 +39,11 @@ function ProductShowcase() {
 					<hr className='w-[70%]' />
 				</div>
 				<div className='w-full'>
-					<img src='/images/Announcement.png' alt='' />
+					<img
+						src='/images/Announcement.png'
+						alt='anouncement'
+						className='rounded-xl'
+					/>
 				</div>
 			</div>
 			<div className='w-full md:w-[80%] flex flex-col gap-2'>

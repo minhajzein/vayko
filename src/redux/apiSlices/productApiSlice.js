@@ -45,6 +45,15 @@ const productApiSlice = apiSlice.injectEndpoints({
             }),
             keepUnusedDataFor: 5,
             providesTags: ['Single-Product']
+        }),
+        getLatestProducts: builder.query({
+            query: () => ({
+                url: '/products/latest',
+                validateStatus: (response, result) => {
+                    return response.status === 200 && result.success
+                }
+            }),
+            keepUnusedDataFor: 5
         })
     })
 })
@@ -55,7 +64,8 @@ export const {
     useGetAllProductsQuery,
     useGetOurProductsQuery,
     useTrendingProductsQuery,
-    useGetSingleProductQuery
+    useGetSingleProductQuery,
+    useGetLatestProductsQuery
 } = productApiSlice
 
 

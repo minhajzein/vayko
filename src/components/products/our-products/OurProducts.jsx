@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import ProductCard from '../ProductCard'
-import { useGetOurProductsQuery } from '../../../redux/apiSlices/productApiSlice'
+import { useGetLatestProductsQuery } from '../../../redux/apiSlices/productApiSlice'
 import { useGetWishlistQuery } from '../../../redux/apiSlices/wishlistApiSlice'
 import { useSelector } from 'react-redux'
 import NowSellingProductSkelton from '../../../skeltons/NowSellingProductSkelton'
@@ -9,7 +9,7 @@ import NowSellingProductSkelton from '../../../skeltons/NowSellingProductSkelton
 
 function OurProducts() {
 	const user = useSelector(state => state.auth.user)
-	const { data: ourProducts, isLoading } = useGetOurProductsQuery()
+	const { data: latestProducts, isLoading } = useGetLatestProductsQuery()
 	const { data } = useGetWishlistQuery(user?.id)
 	const wishlist = data?.wishlists.data
 
@@ -31,7 +31,7 @@ function OurProducts() {
 					<NowSellingProductSkelton />
 				) : (
 					<div className='grid md:grid-cols-5 grid-cols-2 md:gap-6 gap-3 pt-4 w-full'>
-						{ourProducts?.mostPurchasedProducts.map(product => (
+						{latestProducts?.products.map(product => (
 							<ProductCard
 								key={product.id}
 								product={product}

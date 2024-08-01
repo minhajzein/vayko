@@ -53,7 +53,7 @@ function Login() {
 
 	return (
 		<div className='w-full flex flex-col md:flex-row h-dvh'>
-			<div className='bg-[#FE2B3E] md:w-[50%] h-[65%] overflow-hidden m-4 md:m-0 md:rounded-none rounded-xl md:py-40 p-10 flex-col md:h-full flex justify-end items-center relative'>
+			<div className='bg-[#FE2B3E] md:w-[50%] h-[50%] overflow-hidden m-4 md:m-0 md:rounded-none rounded-xl md:py-40 md:p-10 p-5 flex-col md:h-full flex justify-end items-center relative'>
 				<div className='absolute md:-top-36 left-0 w-full h-full'>
 					<img
 						src='/images/sign-up/lens-flare.png'
@@ -62,19 +62,22 @@ function Login() {
 					/>
 					<img
 						src='/images/vayko-logo-rounded-2.png'
-						className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+						className='absolute size-32 md:size-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
 						alt='logo'
 					/>
 				</div>
-				<h1 className='text-white z-10 capitalize text-center font-skranji text-3xl font-bold md:text-5xl'>
-					vayko will change <br />
-					your life
+				<h1 className='text-white z-10 capitalize text-center font-skranji text-xl font-bold md:text-3xl'>
+					"vayko will change your life"
 				</h1>
 			</div>
-			<div className='md:w-[50%] w-full h-[35%] md:h-full flex flex-col capitalize md:gap-5 gap-2 md:justify-center items-center'>
+			<div className='md:w-[50%] w-full h-[45%] md:h-full flex flex-col capitalize md:gap-5 gap-2 md:justify-center items-center'>
 				<div className='flex flex-col gap-1'>
-					<h1 className='text-3xl text-center text-[#FE2B3E]'>login</h1>
-					<p className='text-center'>login and get exciting prices</p>
+					<h1 className='md:text-3xl text-lg text-center text-[#FE2B3E]'>
+						login
+					</h1>
+					<p className='text-center text-xs md:text-sm'>
+						login and get exciting prices
+					</p>
 				</div>
 				<form
 					onSubmit={formik.handleSubmit}
@@ -123,7 +126,7 @@ function Login() {
 						{isLoading ? <CgSpinner className='animate-spin' /> : 'login'}
 					</button>
 				</form>
-				<p className='text-[#FE2B3E]'>
+				<p className='text-[#FE2B3E] text'>
 					Don't have an account?{' '}
 					<span
 						onClick={() => navigate('/sign-up')}
