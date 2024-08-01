@@ -1,27 +1,14 @@
-import React from 'react'
 import CategoryCard from './CategoryCard'
 import { useGetAllCategoriesQuery } from '../../redux/apiSlices/categoriesApiSlice'
 import { useHorizontalScroll } from '../../hooks/useHorizontalScroll'
 import CategorySkelton from '../../skeltons/CategorySkelton'
-const cates = [
-	{ title: 'bags', image: '/images/bag.png' },
-	{ title: 'watches', image: '/images/watch.png' },
-	{ title: 'apparels', image: '/images/apparels.png' },
-	{ title: 'shoes', image: '/images/shoes.png' },
-	{ title: 'clothes', image: '/images/clothes.png' },
-	{ title: 'bags', image: '/images/bag.png' },
-	{ title: 'watches', image: '/images/watch.png' },
-	{ title: 'apparels', image: '/images/apparels.png' },
-	{ title: 'shoes', image: '/images/shoes.png' },
-	{ title: 'clothes', image: '/images/clothes.png' },
-]
 
 //imports................................................................................................
 
-function Categories({ backgroundColor, title, titleColor }) {
+function Categories() {
 	const { data, isSuccess, isLoading } = useGetAllCategoriesQuery()
 	const scrollReff = useHorizontalScroll()
-	console.log(data?.entities)
+
 	return (
 		<div className={`max-w-full flex flex-col gap-2 md:px-[80px] md:py-4`}>
 			{isLoading ? (

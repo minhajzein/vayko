@@ -24,8 +24,13 @@ function DrawTimer() {
 
 	useEffect(() => {
 		let interval
-		if (deadline <= new Date().toLocaleTimeString) {
+		if (new Date(deadline).getTime() !== new Date().getTime() && isSuccess) {
 			interval = setInterval(() => getTime(deadline), 1000)
+		} else {
+			setHours('0')
+			setDays('0')
+			setMinutes('0')
+			setSeconds('0')
 		}
 		return () => clearInterval(interval)
 	}, [isSuccess])
