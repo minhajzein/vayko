@@ -40,7 +40,7 @@ function ProductShowcase() {
 				</div>
 				<div className='w-full'>
 					<img
-						src='/images/Announcement.png'
+						src='/images/win-scooter.jpg'
 						alt='anouncement'
 						className='rounded-xl'
 					/>

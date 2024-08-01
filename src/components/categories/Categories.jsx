@@ -16,7 +16,7 @@ function Categories() {
 			) : (
 				<div
 					ref={scrollReff}
-					className='grid grid-flow-col hover:cursor-w-resize overflow-x-auto px-2 scrollbar-hidden'
+					className='grid grid-flow-col hover:cursor-w-resize gap-4 overflow-x-auto px-2 scrollbar-hidden'
 				>
 					{isSuccess && data.ids.map(id => <CategoryCard key={id} id={id} />)}
 				</div>

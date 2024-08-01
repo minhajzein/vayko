@@ -53,24 +53,17 @@ function Login() {
 
 	return (
 		<div className='w-full flex flex-col md:flex-row h-dvh'>
-			<div className='bg-[#FE2B3E] md:w-[50%] h-[50%] overflow-hidden m-4 md:m-0 md:rounded-none rounded-xl md:py-40 md:p-10 p-5 flex-col md:h-full flex justify-end items-center relative'>
-				<div className='absolute md:-top-36 left-0 w-full h-full'>
-					<img
-						src='/images/sign-up/lens-flare.png'
-						className='absolute top-1/2 left-1/2 w-[350%]  object-cover -translate-x-1/2 -translate-y-1/2'
-						alt='lenz-flare'
-					/>
-					<img
-						src='/images/vayko-logo-rounded-2.png'
-						className='absolute size-32 md:size-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-						alt='logo'
-					/>
-				</div>
-				<h1 className='text-white z-10 capitalize text-center font-skranji text-xl font-bold md:text-3xl'>
+			<div className='bg-[#FE2B3E] md:w-[50%] items-center gap-14 m-4 md:m-0  md:rounded-none rounded-xl overflow-hidden md:h-full flex flex-col md:p-10 p-2 justify-center relative'>
+				<img
+					src='/images/vayko-logo-rounded-2.png'
+					className='w-[30%]'
+					alt='logo'
+				/>
+				<h1 className='text-white font-skranji z-10 capitalize text-center text-sm font-bold md:text-2xl'>
 					"vayko will change your life"
 				</h1>
 			</div>
-			<div className='md:w-[50%] w-full h-[45%] md:h-full flex flex-col capitalize md:gap-5 gap-2 md:justify-center items-center'>
+			<div className='md:w-[50%] w-full h-[50%] md:h-full justify-evenly flex flex-col capitalize md:gap-5 gap-2 md:justify-center items-center'>
 				<div className='flex flex-col gap-1'>
 					<h1 className='md:text-3xl text-lg text-center text-[#FE2B3E]'>
 						login
@@ -126,7 +119,7 @@ function Login() {
 						{isLoading ? <CgSpinner className='animate-spin' /> : 'login'}
 					</button>
 				</form>
-				<p className='text-[#FE2B3E] text'>
+				<p className='text-[#FE2B3E] text-xs md:text-sm'>
 					Don't have an account?{' '}
 					<span
 						onClick={() => navigate('/sign-up')}
@@ -135,7 +128,7 @@ function Login() {
 						Sign Up
 					</span>
 				</p>
-				<p className='text-blue-500'>
+				<p className='text-blue-500 text-xs md:text-sm'>
 					Back to{' '}
 					<span
 						onClick={() => navigate('/')}

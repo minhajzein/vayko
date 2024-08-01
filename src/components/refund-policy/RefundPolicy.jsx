@@ -38,13 +38,13 @@ function RefundPolicy() {
 			<p className='md:text-xl text-lg'>
 				We do not offer replacements for products. Each item undergoes a
 				thorough quality check before shipping to ensure it meets our standards.
-				If you receive a product that is damaged or defective, please follow the
-				steps in our complaint procedure.
+				Only if you receive a damaged or defective product, you can request an
+				exchange by following the steps in our complaint procedure.
 			</p>
 			<h1 className='text-xl font-bold'>Product Complaints</h1>
 			<p className='md:text-xl text-lg'>
 				If you receive a damaged or defective product, please email us at
-				<span className='text-blue-500'> complaints@vayko.in</span> within 48
+				<span className='text-blue-500'>complaints@vayko.in</span> within 48
 				hours of receiving your order. Include your order number, a detailed
 				description of the issue, and photos of the damaged or defective item.
 				Our customer service team will review your complaint and respond with a

@@ -121,28 +121,21 @@ function Signup() {
 	})
 
 	return (
-		<div className='w-full h-dvh flex-col md:flex-row flex'>
-			<div className='bg-[#FE2B3E] md:w-[50%]  m-4 md:m-0 md:rounded-none rounded-xl h-[80%] overflow-hidden md:h-full flex md:p-28 p-10 items-end relative'>
-				<div className='absolute -top-10 md:-top-36 left-0 w-full h-full'>
-					<img
-						src='/images/sign-up/lens-flare.png'
-						className='absolute top-1/2 left-1/2 w-[350%] object-cover -translate-x-1/2 -translate-y-1/2'
-						alt='lenz-flare'
-					/>
-					<img
-						src='/images/vayko-logo-rounded-2.png'
-						className='absolute w-[30%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-						alt='logo'
-					/>
-				</div>
-				<h1 className='text-white z-10 capitalize text-center text-3xl font-bold md:text-7xl'>
-					vayko will change your life
+		<div className='w-full md:h-dvh flex-col md:flex-row flex'>
+			<div className='bg-[#FE2B3E] md:w-[50%] items-center gap-14 m-4 md:m-0  md:rounded-none rounded-xl overflow-hidden md:h-full flex flex-col md:p-10 p-2 justify-center relative'>
+				<img
+					src='/images/vayko-logo-rounded-2.png'
+					className='w-[30%]'
+					alt='logo'
+				/>
+				<h1 className='text-white font-skranji z-10 capitalize text-center text-sm font-bold md:text-2xl'>
+					"vayko will change your life"
 				</h1>
 			</div>
-			<div className='md:w-[50%] w-full h-full flex flex-col md:gap-5 gap-2 capitalize md:justify-center items-center'>
+			<div className='md:w-[50%] w-full md:h-full py-5 flex flex-col md:gap-5 gap-2 capitalize md:justify-center items-center'>
 				<div className='flex flex-col gap-1'>
-					<h1 className='text-3xl text-center text-[#FE2B3E]'>sign up</h1>
-					<p className='text-center'>sign up and get exciting price</p>
+					<h1 className='md:text-xl text-center text-[#FE2B3E]'>sign up</h1>
+					<p className='text-center text-sm'>sign up and get exciting price</p>
 				</div>
 				<form
 					onSubmit={formik.handleSubmit}
@@ -270,7 +263,7 @@ function Signup() {
 						{isLoading ? <CgSpinner className='animate-spin' /> : 'sign up'}
 					</button>
 				</form>
-				<p className='text-[#FE2B3E]'>
+				<p className='text-[#FE2B3E] text-xs md:text-sm'>
 					Existing user?{' '}
 					<span
 						onClick={() => navigate('/login')}
@@ -279,7 +272,7 @@ function Signup() {
 						Login
 					</span>
 				</p>
-				<p className='text-blue-500'>
+				<p className='text-blue-500 text-xs md:text-sm'>
 					Back to{' '}
 					<span
 						onClick={() => navigate('/')}

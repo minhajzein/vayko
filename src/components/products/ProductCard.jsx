@@ -13,7 +13,7 @@ function ProductCard({ wishlist, product }) {
 				<img
 					src={product?.photos[0]}
 					onClick={() => navigate(`/product/${product.slug}`)}
-					className='md:h-64 cursor-pointer md:hover:scale-150 duration-300 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
+					className='md:h-52 cursor-pointer md:hover:scale-150 duration-300 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
 					alt='product'
 				/>
 				<div className='absolute top-4 flex flex-col items-center justify-center gap-2 right-4'>

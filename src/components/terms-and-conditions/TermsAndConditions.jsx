@@ -80,12 +80,14 @@ function TermsAndConditions() {
 							<span className='capitalize font-bold'>Policy: </span>
 							Please note that we do not offer returns or replacements. All
 							sales are final. Ensure you review your order and product details
-							carefully before making a purchase.
+							carefully before making a purchase. Only if you received any
+							damaged piece, you can request an exchange.
 						</li>
 						<li>
 							If you have any complaints regarding a product, please contact us
-							via email at <span className='font-bold'>complaint@vayko.in</span>
-							. We will review and address your concerns promptly.
+							via email at{' '}
+							<span className='text-blue-500'>complaint@vayko.in</span>. We will
+							review and address your concerns promptly.
 						</li>
 					</ul>
 				</li>
