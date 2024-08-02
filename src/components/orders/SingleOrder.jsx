@@ -1,3 +1,4 @@
+import { CgSpinner } from 'react-icons/cg'
 import { useDownloadInvoiceQuery } from '../../redux/apiSlices/orderApiSlice'
 import downloadPDF from '../../utils/downloadPDF'
 import OrderTile from './OrderTile'
@@ -33,11 +34,17 @@ function SingleOrder({ order }) {
 				)}
 				<button
 					disabled={isLoading}
-					onClick={() => downloadPDF({ pdf: data.pdf, fileName: order.id })}
+					onClick={() => downloadPDF(data?.pdf, order.order_number)}
 					className='flex border p-2 rounded-full md:text-sm text-xs border-[#FF2A3E] text-[#FF2A3E] justify-center gap-2 items-center'
 				>
-					<PiPrinter className='text-xl' />
-					<h1>Print Invoice</h1>
+					{isLoading ? (
+						<CgSpinner className='animate-spin m-auto' />
+					) : (
+						<>
+							<PiPrinter className='text-xl' />
+							<h1>Print Invoice</h1>
+						</>
+					)}
 				</button>
 			</div>
 			<hr />
