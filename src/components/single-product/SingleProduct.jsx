@@ -12,6 +12,7 @@ function SingleProduct() {
 	const [activeImageIndex, setActiveImageIndex] = useState(0)
 	const { slug } = useParams()
 	const { data, isSuccess } = useGetSingleProductQuery(slug)
+	console.log(data)
 
 	return (
 		isSuccess && (
@@ -55,45 +56,31 @@ function SingleProduct() {
 								</h1>
 							</div>
 							<SmallTimer />
-							{data.product?.discount ? (
-								<div>
-									<div className='flex items-end md:gap-3 gap-2'>
-										<h1 className='text-[#FE2B3E] text-2xl font-bold'>
-											₹
-											{(
-												Number(data.product.price) -
-												(Number(data.product.price) *
-													Number(data.product.discount)) /
-													100
-											).toFixed(2)}
-										</h1>
-										<del className='text-black opacity-50 text-xl font-bold'>
-											₹{data.product.price}
-										</del>
-										<span className='text-green-600 font-semibold rounded-xl text-lg'>
-											{Number(data.product.discount).toFixed()}% Off
-										</span>
-									</div>
-									<p className='text-xs'>(Price inclusive of all taxes)</p>
-									<h1
-										className={`${
-											Number(data?.product.stock) <= 0
-												? 'text-red-600'
-												: 'text-green-600'
-										} font-semibold capitalize`}
-									>
-										{Number(data?.product.stock) <= 0
-											? 'out of stock'
-											: 'in stock'}
+							<div>
+								<div className='flex items-end md:gap-3 gap-2'>
+									<h1 className='text-[#FE2B3E] text-2xl font-bold'>
+										₹{Number(data.product.price).toFixed()}
 									</h1>
+									<del className='text-black opacity-50 text-xl font-bold'>
+										₹{Number(data?.product.original_price).toFixed()}
+									</del>
+									<span className='text-green-600 font-semibold rounded-xl text-lg'>
+										{Number(data?.product.discount).toFixed()}% Off
+									</span>
 								</div>
-							) : (
-								<div>
-									<h1 className='text-[#FE2B3E] text-4xl font-bold'>
-										₹{data.product.price}
-									</h1>
-								</div>
-							)}
+								<p className='text-xs'>(Price inclusive of all taxes)</p>
+								<h1
+									className={`${
+										Number(data?.product.stock) <= 0
+											? 'text-red-600'
+											: 'text-green-600'
+									} font-semibold capitalize`}
+								>
+									{Number(data?.product.stock) <= 0
+										? 'out of stock'
+										: 'in stock'}
+								</h1>
+							</div>
 
 							{data.product.is_variable !== '0' && (
 								<div className='hidden md:flex flex-col gap-5'>

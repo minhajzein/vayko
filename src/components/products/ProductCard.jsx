@@ -36,20 +36,12 @@ function ProductCard({ wishlist, product }) {
 			</div>
 
 			<div className='flex gap-2 md:text-lg items-center'>
-				{product?.discount ? (
-					<>
-						<h1 className='font-bold text-[#FE2B3E]'>
-							₹
-							{(
-								Number(product.price) -
-								(Number(product.price) * Number(product.discount)) / 100
-							).toFixed()}
-						</h1>
-						<del className='opacity-50'>₹{Number(product.price).toFixed()}</del>
-					</>
-				) : (
-					<h1 className='font-bold text-[#FE2B3E]'>₹{product.price}</h1>
-				)}
+				<h1 className='font-bold text-[#FE2B3E]'>
+					₹{Number(product.price).toFixed()}
+				</h1>
+				<del className='opacity-50'>
+					₹{Number(product.original_price).toFixed()}
+				</del>
 			</div>
 			<div className='top-4 flex items-center justify-center gap-[6px] right-4'>
 				<FastCheckout product={product} />
