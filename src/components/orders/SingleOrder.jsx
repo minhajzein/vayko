@@ -1,11 +1,13 @@
-import React from 'react'
+import { useDownloadInvoiceQuery } from '../../redux/apiSlices/orderApiSlice'
+import downloadPDF from '../../utils/downloadPDF'
 import OrderTile from './OrderTile'
 import { PiPrinter } from 'react-icons/pi'
 
 //imports................................................................................................
 
 function SingleOrder({ order }) {
-	console.log(order)
+	const { data, isLoading } = useDownloadInvoiceQuery(order.id)
+
 	return (
 		<div className='w-full flex flex-col  gap-4 shadow-lg p-6 rounded-xl'>
 			<div className='flex md:flex-row flex-col gap-2 justify-between items-center'>
@@ -29,7 +31,11 @@ function SingleOrder({ order }) {
 				) : (
 					''
 				)}
-				<button className='flex border p-2 rounded-full md:text-sm text-xs border-[#FF2A3E] text-[#FF2A3E] justify-center gap-2 items-center'>
+				<button
+					disabled={isLoading}
+					onClick={() => downloadPDF({ pdf: data.pdf, fileName: order.id })}
+					className='flex border p-2 rounded-full md:text-sm text-xs border-[#FF2A3E] text-[#FF2A3E] justify-center gap-2 items-center'
+				>
 					<PiPrinter className='text-xl' />
 					<h1>Print Invoice</h1>
 				</button>

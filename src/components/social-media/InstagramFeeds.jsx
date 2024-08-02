@@ -1,5 +1,6 @@
 import React from 'react'
 import InstaCard from './InstaCard'
+import { useGetInstaLinksQuery } from '../../redux/apiSlices/socialApiSlices'
 const data = [
 	{ url: 'https://www.instagram.com/reel/C9zrkExyqQ7/', id: 2 },
 	{ url: 'https://www.instagram.com/reel/C9xIRWyyZXQ/', id: 3 },
@@ -14,10 +15,12 @@ const data = [
 //imports..................................................................
 
 function InstagramFeeds() {
+	const { data: feeds } = useGetInstaLinksQuery()
+	console.log(feeds)
 	return (
 		<div className='w-full grid grid-flow-col gap-2 md:gap-6 px-4 py-2 overflow-x-auto scrollbar-hidden'>
-			{data.map((feed, i) => (
-				<InstaCard key={i} url={feed.url} />
+			{feeds?.links.map(feed => (
+				<InstaCard key={feed.id} url={feed.link} />
 			))}
 		</div>
 	)

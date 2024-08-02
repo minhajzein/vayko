@@ -14,6 +14,15 @@ const orderApiSlice = apiSlice.injectEndpoints({
             keepUnusedDataFor: 5,
             providesTags: ['Orders']
         }),
+        downloadInvoice: builder.query({
+            query: (id) => ({
+                url: `/invoice/${id}`,
+                validateStatus: (response, result) => {
+                    return response.status === 200, result.success
+                },
+                keepUnusedDataFor: 5
+            })
+        }),
         createOrder: builder.mutation({
             query: (data) => ({
                 url: `/order/${data.userId}`,
@@ -46,5 +55,6 @@ export const {
     useGetAllOrdersQuery,
     useCreateOrderMutation,
     useCreateSingleOrderMutation,
-    useVerifyPaymentMutation
+    useVerifyPaymentMutation,
+    useDownloadInvoiceQuery
 } = orderApiSlice
