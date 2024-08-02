@@ -5,7 +5,7 @@ function AboutUs() {
 		<div className='md:mx-[80px] mx-4 md:mb-10 mb-28 rounded-xl flex flex-col gap-2 md:gap-5 border p-5 md:p-10'>
 			<h1 className='md:text-4xl text-2xl font-bold text-center'>About Us</h1>
 			<h2 className='capitalize md:text-2xl text-xl font-semibold text-center'>
-				Welcome to Vayko – The Official E-Commerce Platform of Mallu Traveler!
+				Welcome to Vayko – The Official E-Commerce Platform of Vayko!
 			</h2>
 			<h1 className='md:text-lg font-bold'>About Vayko:</h1>
 			<p className='md:text-lg'>
@@ -24,7 +24,14 @@ function AboutUs() {
 				smooth transaction process. Customer satisfaction is our top priority,
 				and we are committed to providing excellent service.
 			</p>
-			<h1 className='md:text-lg font-bold'>Exciting Lucky Draw:</h1>
+			<h1 className='md:text-lg font-bold'>Exciting Lucky Gala:</h1>
+			<p className='md:text-lg'>
+				To make your shopping experience even more thrilling, Vayko hosts the
+				regular Lucky Gala. Every purchase gives you a chance to win big. The
+				Lucky Gala winners receive the biggest gifts, making their journey with
+				Vayko even more memorable.
+			</p>
+			<h1 className='md:text-lg font-bold'>Explore with Vayko:</h1>
 			<p className='md:text-lg'>
 				Our e-commerce platform is an extension of the adventurous spirit. Here,
 				you will find unique products that reflect a love for discovery. We
