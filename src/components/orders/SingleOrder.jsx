@@ -8,6 +8,7 @@ import { PiPrinter } from 'react-icons/pi'
 
 function SingleOrder({ order }) {
 	const { data, isLoading } = useDownloadInvoiceQuery(order.id)
+	console.log(order)
 
 	return (
 		<div className='w-full flex flex-col  gap-4 shadow-lg p-6 rounded-xl'>
@@ -29,8 +30,18 @@ function SingleOrder({ order }) {
 					<div className='p-2 text-white rounded-full flex md:text-sm text-xs bg-green-500'>
 						<p className='m-auto capitalize'>order placed</p>
 					</div>
+				) : order.status === 'process' ? (
+					<div className='p-2 text-white rounded-full flex md:text-sm text-xs bg-yellow-500'>
+						<p className='m-auto capitalize'>processing</p>
+					</div>
+				) : order.status === 'delivered' ? (
+					<div className='p-2 text-white rounded-full flex md:text-sm text-xs bg-green-500'>
+						<p className='m-auto capitalize'>delivered</p>
+					</div>
 				) : (
-					''
+					<div className='p-2 text-white rounded-full flex md:text-sm text-xs bg-red-500'>
+						<p className='m-auto capitalize'>canceled</p>
+					</div>
 				)}
 				<button
 					disabled={isLoading}
