@@ -39,10 +39,10 @@ function DrawTimer() {
 		<div className='md:px-[80px] p-4 md:p-0 w-full'>
 			<div className='bg-[#FF2A3E] flex flex-col md:flex-row px-9 md:px-32 gap-2 md:gap-0 md:my-5 rounded-lg w-full py-4 md:py-5 overflow-hidden justify-between items-center relative'>
 				<div className='text-white min-h-full z-20 flex flex-col md:gap-2 justify-between'>
-					<h1 className='text-2xl capitalize font-semibold md:text-5xl'>
+					<h1 className='text-xl capitalize font-semibold text-center md:text-5xl'>
 						vayko lucky gala
 					</h1>
-					<p className='md:text-2xl capitalize hidden md:block'>
+					<p className='md:text-2xl capitalize text-sm'>
 						shop and win big with vayko.
 					</p>
 				</div>
@@ -116,13 +116,8 @@ function DrawTimer() {
 					shop and win big with vayko.
 				</p>
 				<img
-					src='/images/gift_box.png'
-					className='object-contain h-[60%] animate-bounce z-20 md:hidden absolute top-1/2 left-0'
-					alt='gift-box'
-				/>
-				<img
 					src='/images/md-gift-box.png'
-					className='absolute hidden animate-bounce md:block z-20 left-0'
+					className='absolute animate-bounce z-10 left-0'
 					alt='md-gift-box'
 				/>
 				<img

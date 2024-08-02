@@ -13,7 +13,7 @@ function WinnerCard({ winner }) {
 						alt='medal'
 					/>
 					<img
-						className='rounded-lg w-full h-52 object-cover'
+						className='rounded-lg w-full md:h-52 size-[160px]  object-cover'
 						src={winner.image}
 						alt='winner_pic'
 					/>

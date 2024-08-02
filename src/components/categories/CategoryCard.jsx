@@ -32,7 +32,7 @@ function CategoryCard({ id }) {
 					<CiLock className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl border bg-gray-200/50 text-black rounded-full p-1' />
 				)}
 			</div>
-			<h1 className='text-black duration-300 md:font-semibold text-xs md:text-lg max-w-full md:truncate capitalize'>
+			<h1 className='text-black duration-300 md:font-semibold text-[12px] md:text-lg max-w-full md:truncate capitalize'>
 				{category.title.split(' ')[1]}
 			</h1>
 		</div>

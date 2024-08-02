@@ -10,7 +10,7 @@ function Categories() {
 	const scrollReff = useHorizontalScroll()
 
 	return (
-		<div className={`max-w-full flex flex-col gap-2 md:px-[80px] md:py-4`}>
+		<div className={`max-w-full flex flex-col gap-2 md:px-[80px] px-4 md:py-4`}>
 			{isLoading ? (
 				<CategorySkelton />
 			) : (

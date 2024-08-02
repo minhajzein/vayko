@@ -21,7 +21,7 @@ function WinnersShowcase() {
 							alt='medal'
 						/>
 						<img
-							className='rounded-lg w-full  bg-slate-400 h-52 object-contain'
+							className='rounded-lg w-full  bg-slate-400 size-[160px]  md:h-52 object-contain'
 							src='/images/who-is-next.png'
 							alt='winner_pic'
 						/>
@@ -45,7 +45,7 @@ function WinnersShowcase() {
 							alt='medal'
 						/>
 						<img
-							className='rounded-lg w-full bg-slate-400 h-52 object-contain'
+							className='rounded-lg w-full size-[160px] bg-slate-400 md:h-52 object-contain'
 							src='/images/who-is-next.png'
 							alt='winner_pic'
 						/>
@@ -70,7 +70,7 @@ function WinnersShowcase() {
 							alt='medal'
 						/>
 						<img
-							className='rounded-lg w-full bg-slate-400 h-52 object-contain'
+							className='rounded-lg w-full bg-slate-400 size-[160px]  md:h-52 object-contain'
 							src='/images/who-is-next.png'
 							alt='winner_pic'
 						/>
