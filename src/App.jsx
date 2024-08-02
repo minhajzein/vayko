@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import PersistLogin from './components/Persist/PersistLogin'
 
 //imports.................................................................
 
@@ -12,7 +13,9 @@ function App() {
 		<Provider store={store}>
 			<BrowserRouter>
 				<Routes>
-					<Route path='/*' element={<UserRoutes />} />
+					<Route element={<PersistLogin />}>
+						<Route path='/*' element={<UserRoutes />} />
+					</Route>
 				</Routes>
 			</BrowserRouter>
 			<ToastContainer position='top-center' theme='colored' />

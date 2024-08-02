@@ -1,9 +1,19 @@
-import React from 'react'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { Outlet } from 'react-router-dom'
+import { setCredentials } from '../../redux/slices/authSlice'
 
 //imports................................................................................................
 
 function PersistLogin() {
-	return <div>PersistLogin</div>
+	const dispatch = useDispatch()
+	const user = JSON.parse(localStorage.getItem('vayko-user'))
+	const token = JSON.parse(localStorage.getItem('vayko-token'))
+
+	useEffect(() => {
+		dispatch(setCredentials({ user, token }))
+	}, [])
+	return <Outlet />
 }
 
 export default PersistLogin

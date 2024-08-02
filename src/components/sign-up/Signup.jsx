@@ -110,6 +110,11 @@ function Signup() {
 							user: response.data.user,
 						})
 					)
+					localStorage.setItem(
+						'vayko-token',
+						JSON.stringify(response.data.token)
+					)
+					localStorage.setItem('vayko-user', JSON.stringify(response.data.user))
 					navigate('/')
 				} else {
 					toast.error(response.error.data.err_msg)

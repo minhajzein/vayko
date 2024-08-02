@@ -15,6 +15,7 @@ import PrivacyPolicyPage from '../pages/user/PricacyPolicyPage'
 import TermsAndConditionsPage from '../pages/user/TermsAndConditionsPage'
 import RequireAuth from '../components/private/RequireAuth'
 import RefundPolicyPage from '../pages/user/RefundPolicyPage'
+import PublicRoute from '../components/public-route/PublicRoute'
 
 //imports.................................................................
 
@@ -23,21 +24,23 @@ function UserRoutes() {
 		<Routes>
 			<Route path='/' element={<LandingPage />} />
 			<Route path='products' element={<ProductsPage />} />
-			<Route path='login' element={<LoginPage />} />
-			<Route element={<RequireAuth />}>
-				<Route path='wishlist' element={<WishlistPage />} />
-				<Route path='cart' element={<CartPage />} />
-				<Route path='orders' element={<OrderPage />} />
-				<Route path='profile' element={<ProfilePage />} />
-			</Route>
 			<Route path='product/:slug' element={<SingleProductPage />} />
-			<Route path='sign-up' element={<SignupPage />} />
 			<Route path='about-us' element={<AboutUsPage />} />
 			<Route path='contact-us' element={<ContactUsPage />} />
 			<Route path='faq' element={<FaqPage />} />
 			<Route path='privacy-policy' element={<PrivacyPolicyPage />} />
 			<Route path='terms-and-conditions' element={<TermsAndConditionsPage />} />
 			<Route path='refund-policy' element={<RefundPolicyPage />} />
+			<Route element={<PublicRoute />}>
+				<Route path='login' element={<LoginPage />} />
+				<Route path='sign-up' element={<SignupPage />} />
+			</Route>
+			<Route element={<RequireAuth />}>
+				<Route path='wishlist' element={<WishlistPage />} />
+				<Route path='cart' element={<CartPage />} />
+				<Route path='orders' element={<OrderPage />} />
+				<Route path='profile' element={<ProfilePage />} />
+			</Route>
 		</Routes>
 	)
 }

@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
+
+//imports..............................................................................
 
 function RequireAuth() {
 	const location = useLocation()
@@ -9,8 +11,8 @@ function RequireAuth() {
 
 	useEffect(() => {
 		if (!token) toast.error('Your login has expired. Please login again.')
-    }, [token])
-    
+	}, [token])
+
 	return token !== null ? (
 		<Outlet />
 	) : (
