@@ -92,7 +92,7 @@ function ContactUs() {
 							className='bg-slate-100 p-2 w-full outline-none'
 							placeholder='Enter your name'
 						/>
-						<p className='text-red-600'>{formik.errors.username}</p>
+						<p className='text-red-600 capitalize'>{formik.errors.username}</p>
 					</div>
 					<div>
 						<input
@@ -104,7 +104,7 @@ function ContactUs() {
 							className='bg-slate-100 p-2 w-full'
 							placeholder='Enter a valid email address'
 						/>
-						<p className='text-red-600'>{formik.errors.email}</p>
+						<p className='text-red-600 capitalize'>{formik.errors.email}</p>
 					</div>
 					<div>
 						<textarea
@@ -116,7 +116,7 @@ function ContactUs() {
 							className='bg-slate-100 p-2 w-full'
 							placeholder='Enter your message'
 						/>
-						<p className='text-red-600'>{formik.errors.message}</p>
+						<p className='text-red-600 capitalize'>{formik.errors.message}</p>
 					</div>
 
 					<button className='border border-[#FE2B3E] text-[#FE2B3E] py-2 md:w-[20%] justify-center px-6 flex'>

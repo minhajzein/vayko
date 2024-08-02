@@ -24,7 +24,7 @@ function DrawTimer() {
 
 	useEffect(() => {
 		let interval
-		if (new Date(deadline).getTime() !== new Date().getTime() && isSuccess) {
+		if (new Date(deadline).getTime() >= new Date().getTime() && isSuccess) {
 			interval = setInterval(() => getTime(deadline), 1000)
 		} else {
 			setHours('0')
@@ -33,7 +33,7 @@ function DrawTimer() {
 			setSeconds('0')
 		}
 		return () => clearInterval(interval)
-	}, [isSuccess])
+	}, [isSuccess, seconds])
 
 	return (
 		<div className='md:px-[80px] p-4 md:p-0 w-full'>
