@@ -7,12 +7,12 @@ import { toast } from 'react-toastify'
 
 function PublicRoute() {
 	const location = useLocation()
-    const token = useSelector(state => state.auth.token)
-    
+	const token = useSelector(state => state.auth.token)
+
 	useEffect(() => {
-		if (token) toast.error('Signed in successfully')
-    }, [token])
-    
+		if (token) toast.success('Signed in successfully')
+	}, [token])
+
 	return token !== null ? (
 		<Navigate to='/' state={{ from: location }} replace />
 	) : (
