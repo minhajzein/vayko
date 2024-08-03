@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetCartQuery } from '../../redux/apiSlices/cartApiSlice'
 import { CiUser } from 'react-icons/ci'
-import { sendLogout } from '../../redux/slices/authSlice'
+import { sendLogout, setCredentials } from '../../redux/slices/authSlice'
 
 //imports................................................................................................
 
@@ -14,7 +14,13 @@ function Navbar() {
 	const user = useSelector(state => state.auth.user)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { data: cartDetails } = useGetCartQuery(user?.id)
+	const { data: cartDetails, error } = useGetCartQuery(user?.id)
+
+	if (error && error.status === 401) {
+		dispatch(setCredentials({ user: null, token: null }))
+		localStorage.removeItem('vayko-user')
+		localStorage.removeItem('vayko-token')
+	}
 
 	return (
 		<div className='w-full shadow-md md:px-[80px] px-4 sticky top-0 backdrop-blur-xl bg-white/50 z-30 py-4 flex justify-between  items-center'>

@@ -121,7 +121,7 @@ function FastCheckout({ product }) {
 			<button
 				onClick={handleModal}
 				disabled={isLoading}
-				className='bg-[#FE2B3E] flex hidden relative rounded-full hover:scale-105 duration-300 w-full text-white border p-1 shadow'
+				className='bg-[#FE2B3E] flex relative rounded-full hover:scale-105 duration-300 w-full text-white border p-1 shadow'
 			>
 				{isLoading || loading ? (
 					<CgSpinner className='animate-spin m-auto' />

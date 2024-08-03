@@ -97,7 +97,7 @@ function CreateOrder({ shippingAddressId, items }) {
 		<button
 			onClick={handleCheckout}
 			disabled={verifying || loading || isLoading}
-			className='p-4 text-xl hidden  capitalize bg-[#FE2B3E] text-white rounded-xl'
+			className='p-4 text-xl capitalize bg-[#FE2B3E] text-white rounded-xl'
 		>
 			{isLoading ? (
 				<CgSpinner className='animate-spin m-auto' />

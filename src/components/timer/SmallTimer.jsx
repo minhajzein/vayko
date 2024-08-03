@@ -24,15 +24,21 @@ function SmallTimer() {
 
 	useEffect(() => {
 		let interval
-		if (deadline <= new Date().toLocaleTimeString) {
+		if (new Date(deadline).getTime() >= new Date().getTime() && isSuccess) {
 			interval = setInterval(() => getTime(deadline), 1000)
+		} else {
+			setHours('0')
+			setDays('0')
+			setMinutes('0')
+			setSeconds('0')
 		}
 		return () => clearInterval(interval)
-	}, [isSuccess])
+	}, [isSuccess, seconds])
+
 	return (
 		<div className='border border-[#FF2A3E] gap-2 px-4 py-2 rounded-xl flex flex-col justify-center w-full md:w-auto items-center'>
 			<h1 className='text-xl text-[#FF2A3E] capitalize font-semibold md:text-3xl'>
-				offer ends in
+				offer ends at
 			</h1>
 			<div className='flex gap-2 w-full justify-center pb-2'>
 				<div className='capitalize border p-2 rounded-xl flex flex-col justify-center items-center'>

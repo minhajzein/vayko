@@ -42,7 +42,7 @@ function DrawTimer() {
 					<h1 className='text-xl capitalize font-semibold text-center md:text-5xl'>
 						vayko lucky gala
 					</h1>
-					<p className='md:text-2xl capitalize text-sm'>
+					<p className='md:text-2xl hidden md:block capitalize text-sm'>
 						shop and win big with vayko.
 					</p>
 				</div>
@@ -112,7 +112,7 @@ function DrawTimer() {
 						</p>
 					</div>
 				</div>
-				<p className='md:text-2xl capitalize z-40 text-center text-white md:hidden'>
+				<p className='text-sm capitalize z-40 text-center text-white md:hidden'>
 					shop and win big with vayko.
 				</p>
 				<img

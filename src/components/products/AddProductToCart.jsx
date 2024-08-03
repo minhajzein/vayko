@@ -38,7 +38,7 @@ function AddProductToCart({ slug, variant, title }) {
 		<button
 			onClick={addProductToCart}
 			disabled={isLoading}
-			className='bg-white hidden rounded-full text-xs md:text-sm hover:scale-105 flex items-center justify-center gap-2 duration-300  text-[#FE2B3E] w-[] border border-[#FE2B3E] p-2 shadow'
+			className='bg-white rounded-full text-xs md:text-sm hover:scale-105 flex items-center justify-center gap-2 duration-300  text-[#FE2B3E] w-[] border border-[#FE2B3E] p-2 shadow'
 		>
 			{isLoading ? (
 				<CgSpinner className='animate-spin m-auto' />
