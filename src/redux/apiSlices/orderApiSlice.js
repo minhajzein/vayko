@@ -5,8 +5,8 @@ import apiSlice from "../../apis/apiSlice";
 const orderApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getAllOrders: builder.query({
-            query: (userId) => ({
-                url: `/order/${userId}`,
+            query: (userId, page = 1) => ({
+                url: `/order/${userId}?page=${page}`,
                 validateStatus: (response, result) => {
                     return response.status === 200 && result.success
                 }

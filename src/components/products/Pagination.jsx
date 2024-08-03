@@ -42,7 +42,7 @@ function Pagination({ isSuccess, links, lastPage, setPage, page }) {
 				<button
 					onClick={() => setPage(page + 1)}
 					className='size-8'
-					disabled={links[page + 1].url ? false : true}
+					disabled={links[page + 1]?.url ? false : true}
 				>
 					<img src='/svgs/arrow-square-right.svg' alt='' />
 				</button>

@@ -31,7 +31,9 @@ function CreateOrder({ shippingAddressId, items }) {
 						items: items.map(x => x.id),
 					},
 				})
-				if (response.data.success) {
+				console.log(response)
+
+				if (response?.data?.success) {
 					var options = {
 						key: 'rzp_test_jk6BVykF0sfMd7',
 						amount: response.data.total_amount * 100,
@@ -86,6 +88,8 @@ function CreateOrder({ shippingAddressId, items }) {
 					rzp.open()
 
 					e.preventDefault()
+				} else {
+					toast.error(response?.error.data.err_msg)
 				}
 			}
 		} catch (error) {
@@ -97,7 +101,7 @@ function CreateOrder({ shippingAddressId, items }) {
 		<button
 			onClick={handleCheckout}
 			disabled={verifying || loading || isLoading}
-			className='p-4 text-xl capitalize bg-[#FE2B3E] text-white rounded-xl'
+			className='p-4 text-lg capitalize bg-[#FE2B3E] text-white rounded-xl'
 		>
 			{isLoading ? (
 				<CgSpinner className='animate-spin m-auto' />

@@ -12,7 +12,6 @@ function SingleProduct() {
 	const [activeImageIndex, setActiveImageIndex] = useState(0)
 	const { slug } = useParams()
 	const { data, isSuccess } = useGetSingleProductQuery(slug)
-	console.log(data)
 
 	return (
 		isSuccess && (

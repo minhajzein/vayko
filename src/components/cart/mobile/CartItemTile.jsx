@@ -13,7 +13,7 @@ function CartItemTile({ product }) {
 
 	return (
 		<div className='h-24 w-full flex gap-2'>
-			<div className='h-full relative'>
+			<div className='h-full w-[40%] relative'>
 				<img
 					src={product.product.photos[0]}
 					className='p-1 size-24 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
@@ -31,7 +31,7 @@ function CartItemTile({ product }) {
 					)}
 				</button>
 			</div>
-			<div className='flex flex-col h-full  justify-between'>
+			<div className='flex flex-col h-full w-full  justify-between'>
 				<h1 className='capitalize font-semibold line-clamp-1'>
 					{product.product.title}
 				</h1>

@@ -14,7 +14,6 @@ import { IoFlashOutline } from 'react-icons/io5'
 
 function FastCheckout({ product }) {
 	const [shippingAddressId, setShippingAddressId] = useState(null)
-	const [ordered, setOrdered] = useState(false)
 	const [isOpen, setIsOpen] = useState(false)
 	const [loading, setLoading] = useState(false)
 	const [createOrder, { isLoading }] = useCreateSingleOrderMutation()
@@ -22,10 +21,6 @@ function FastCheckout({ product }) {
 
 	const user = useSelector(state => state.auth.user)
 	const navigate = useNavigate()
-
-	const amount =
-		Number(product?.price) -
-		(Number(product?.price) * Number(product?.discount)) / 100
 
 	const handleCheckout = async e => {
 		if (!user) return toast.error('Please login to buy products')
@@ -39,13 +34,14 @@ function FastCheckout({ product }) {
 			const response = await createOrder({
 				userId: user?.id,
 				credentials: {
-					total_amount: amount.toFixed(),
+					total_amount: Number(product?.price).toFixed(),
 					shipping_address_id: shippingAddressId,
 					product_id: product.id,
 				},
 			})
+
 			if (response?.data?.success) {
-				var options = {
+				const options = {
 					key: 'rzp_test_jk6BVykF0sfMd7',
 					amount: response.data.total_amount * 100,
 					currency: 'INR',
@@ -85,7 +81,7 @@ function FastCheckout({ product }) {
 						color: '#3399cc',
 					},
 				}
-				var rzp = new window.Razorpay(options)
+				const rzp = new window.Razorpay(options)
 				rzp.on('payment.failed', function (response) {
 					setLoading(false)
 					alert(response.error.code)
@@ -97,7 +93,6 @@ function FastCheckout({ product }) {
 					alert(response.error.metadata.payment_id)
 				})
 				rzp.open()
-
 				e.preventDefault()
 			} else {
 				toast.error('Order creation failed')
@@ -155,24 +150,12 @@ function FastCheckout({ product }) {
 								/>
 							</div>
 							<div className='flex gap-4 text-2xl'>
-								{product?.discount ? (
-									<>
-										<h1 className='font-bold text-[#FE2B3E]'>
-											₹
-											{(
-												Number(product.price) -
-												(Number(product.price) * Number(product.discount)) / 100
-											).toFixed()}
-										</h1>
-										<del className='opacity-50'>
-											₹{Number(product.price).toFixed()}
-										</del>
-									</>
-								) : (
-									<h1 className='font-bold text-[#FE2B3E]'>
-										₹{Number(product.price).toFixed()}
-									</h1>
-								)}
+								<h1 className='font-bold text-[#FE2B3E]'>
+									₹{Number(product.price).toFixed()}
+								</h1>
+								<del className='opacity-50'>
+									₹{Number(product.original_price).toFixed()}
+								</del>
 							</div>
 							<ShippingAddress setShippingAddressId={setShippingAddressId} />
 							<button
@@ -183,7 +166,7 @@ function FastCheckout({ product }) {
 								{loading ? (
 									<CgSpinner className='animate-spin m-auto' />
 								) : (
-									`pay now ₹${amount.toFixed()}`
+									`pay now ₹${Number(product?.price).toFixed()}`
 								)}
 							</button>
 						</div>

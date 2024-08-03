@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 //imports................................................................................................
 
 function OrderTile({ order }) {
+	console.log(order)
+
 	return (
 		<div className='w-full p-4 bg-gray-100 shadow rounded-xl justify-between  flex'>
 			<div className='flex md:flex-row flex-col gap-2'>
