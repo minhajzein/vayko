@@ -37,7 +37,7 @@ function CartItemTile({ product }) {
 				</h1>
 				<div className='flex flex-col gap-1 w-full'>
 					<h1 className='font-bold text-sm md:text-lg text-[#FE2B3E]'>
-						₹{product.price}
+						₹{Number(product.price).toFixed()}
 					</h1>
 					<div className='w-full flex justify-between items-center'>
 						<div className='flex gap-4 border py-1 px-3 rounded-full'>

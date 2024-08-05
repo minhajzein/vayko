@@ -13,7 +13,6 @@ function CartShowCase() {
 	const user = useSelector(state => state.auth.user)
 
 	const { data: cartDetails } = useGetCartQuery(user?.id)
-	console.log(cartDetails)
 
 	return (
 		<div className='flex flex-col gap-5 w-full md:pb-0 pb-24'>

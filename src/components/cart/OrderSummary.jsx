@@ -29,7 +29,8 @@ function OrderSummary({ cartDetails, shippingAddressId }) {
 					₹
 					{cartDetails?.cartProducts.data
 						.reduce((acc, cur) => (acc += Number(cur.total)), 0)
-						.toFixed(2)}
+						.toFixed()}
+					/-
 				</h1>
 			</div>
 

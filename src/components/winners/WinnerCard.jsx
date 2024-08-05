@@ -11,11 +11,22 @@ function WinnerCard({ winner }) {
 					src={winner.image}
 					alt='winner_pic'
 				/>
-				{winner.prize === 'TVS NTORQ' && (
+				{winner.prize === 'TVS NTORQ' ? (
 					<div className='absolute bottom-0 flex p-2 flex-col w-full left-0'>
 						<img
 							src='/images/ntorq-winner.png'
-							className='size-[50%]'
+							className='size-[70%]'
+							alt='prize'
+						/>
+						<h1 className='w-full p-1 italic rounded-full text-xs md:text-sm ring-2 font-extrabold ring-[#FE2B3E] text-center bg-[#F6D142]'>
+							{winner.prize} WINNER
+						</h1>
+					</div>
+				) : (
+					<div className='absolute bottom-0 flex p-2 flex-col w-full left-0'>
+						<img
+							src='/images/money-bundle.png'
+							className='size-[60%]'
 							alt='prize'
 						/>
 						<h1 className='w-full p-1 italic rounded-full text-xs md:text-sm ring-2 font-extrabold ring-[#FE2B3E] text-center bg-[#F6D142]'>

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import getRondomColor from '../../utils/getRandomColor'
 
 //imports................................................................................................
 
 function OrderTile({ order }) {
-	console.log(order)
+	console.log(getRondomColor())
 
 	return (
 		<div className='w-full p-4 bg-gray-100 shadow rounded-xl justify-between  flex'>
@@ -20,6 +20,9 @@ function OrderTile({ order }) {
 					<h1>SKU : {order.product.sku}</h1>{' '}
 					<h1>Amount : {order.product.price}</h1>
 					<h1>Quantity : {order.quantity}</h1>
+				</div>
+				<div className={`bg-[${getRondomColor()}]`}>
+					<h1>{order.raffle_code}</h1>
 				</div>
 			</div>
 		</div>

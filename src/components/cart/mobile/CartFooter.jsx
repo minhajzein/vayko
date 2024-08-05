@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { CgSpinner } from 'react-icons/cg'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useCreateOrderMutation, useVerifyPaymentMutation } from '../../../redux/apiSlices/orderApiSlice'
+import {
+	useCreateOrderMutation,
+	useVerifyPaymentMutation,
+} from '../../../redux/apiSlices/orderApiSlice'
 import { toast } from 'react-toastify'
 
 //imports................................................................
 
-function CartFooter({ total, shippingAddressId,items }) {
+function CartFooter({ total, shippingAddressId, items }) {
 	const user = useSelector(state => state.auth.user)
 	const [loading, setLoading] = useState(false)
 	const navigate = useNavigate()
@@ -91,7 +94,7 @@ function CartFooter({ total, shippingAddressId,items }) {
 		}
 	}
 	return (
-		<div className='w-full sticky md:hidden bottom-[80px] bg-[#F5F5F5] flex justify-between items-center p-3'>
+		<div className='w-full sticky md:hidden bottom-[80px] hidden bg-[#F5F5F5] justify-between items-center p-3'>
 			<h1 className='font-bold'>Total ₹{total}</h1>
 			<button
 				disabled={verifying || loading || isLoading}
