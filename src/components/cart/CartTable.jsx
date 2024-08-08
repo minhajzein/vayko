@@ -15,11 +15,11 @@ function CartTable() {
 
 	return cartDetails?.cartProducts.data.length !== 0 ? (
 		<div className='hidden w-full md:flex gap-4 relative pb-8'>
-			<div className='w-[30%] border rounded-xl px-4'>
+			<div className='w-[30%] border rounded-xl p-4'>
 				<ShippingAddress setShippingAddressId={setShippingAddressId} />
 			</div>
 			<div className='w-[40%] border rounded-xl p-2'>
-				<h1 className='text-xl font-bold px-4'>items</h1>
+				<h1 className='text-xl font-bold px-6'>items</h1>
 				<CartShowCase />
 			</div>
 			<div className='w-[30%] flex flex-col gap-5'>

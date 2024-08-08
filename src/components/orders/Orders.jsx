@@ -10,7 +10,11 @@ function Orders() {
 	const user = useSelector(state => state.auth.user)
 	const [page, setPage] = useState(1)
 
-	const { data: orderDetails, isSuccess } = useGetAllOrdersQuery(user?.id, page)
+	const {
+		data: orderDetails,
+		isSuccess,
+		error,
+	} = useGetAllOrdersQuery(user?.id, page)
 	console.log(orderDetails)
 
 	return (

@@ -1,11 +1,9 @@
 import React from 'react'
-import getRondomColor from '../../utils/getRandomColor'
+import RaffleCode from './RaffleCode'
 
 //imports................................................................................................
 
 function OrderTile({ order }) {
-	console.log(getRondomColor())
-
 	return (
 		<div className='w-full p-4 bg-gray-100 shadow rounded-xl justify-between  flex'>
 			<div className='flex md:flex-row flex-col gap-2'>
@@ -21,8 +19,10 @@ function OrderTile({ order }) {
 					<h1>Amount : {order.product.price}</h1>
 					<h1>Quantity : {order.quantity}</h1>
 				</div>
-				<div className={`bg-[${getRondomColor()}]`}>
-					<h1>{order.raffle_code}</h1>
+				<div className='flex flex-col gap-2'>
+					{order.raffle_code.split(',').map((code, i) => (
+						<RaffleCode raffleCode={code} key={i} />
+					))}
 				</div>
 			</div>
 		</div>

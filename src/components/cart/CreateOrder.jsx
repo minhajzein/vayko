@@ -35,7 +35,7 @@ function CreateOrder({ shippingAddressId, items }) {
 
 				if (response?.data?.success) {
 					var options = {
-						key: 'rzp_test_jk6BVykF0sfMd7',
+						key: 'rzp_live_9dYBXfghmDqVZl',
 						amount: response.data.total_amount * 100,
 						currency: 'INR',
 						name: 'Vayko',
@@ -101,7 +101,7 @@ function CreateOrder({ shippingAddressId, items }) {
 		<button
 			onClick={handleCheckout}
 			disabled={verifying || loading || isLoading}
-			className='p-4 text-lg capitalize bg-[#FE2B3E] hidden text-white rounded-xl'
+			className='p-4 text-lg capitalize bg-[#FE2B3E] flex justify-center text-white rounded-xl'
 		>
 			{isLoading ? (
 				<CgSpinner className='animate-spin m-auto' />

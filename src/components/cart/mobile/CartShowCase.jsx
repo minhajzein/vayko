@@ -12,14 +12,15 @@ function CartShowCase() {
 	const [shippingAddressId, setShippingAddressId] = useState(null)
 	const user = useSelector(state => state.auth.user)
 
-	const { data: cartDetails } = useGetCartQuery(user?.id)
+	const { data: cartDetails, isSuccess } = useGetCartQuery(user?.id)
 
 	return (
 		<div className='flex flex-col gap-5 w-full md:pb-0 pb-24'>
 			<div className='w-full flex flex-col gap-4 p-4'>
-				{cartDetails?.cartProducts.data.map(product => (
-					<CartItemTile key={product.id} product={product} />
-				))}
+				{isSuccess &&
+					cartDetails?.cartProducts.data.map(product => (
+						<CartItemTile key={product.id} product={product} />
+					))}
 			</div>
 			<div className='md:hidden flex flex-col gap-4 px-4'>
 				<ShippingAddress setShippingAddressId={setShippingAddressId} />
