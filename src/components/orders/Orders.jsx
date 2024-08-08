@@ -15,7 +15,6 @@ function Orders() {
 		isSuccess,
 		error,
 	} = useGetAllOrdersQuery(user?.id, page)
-	console.log(orderDetails)
 
 	return (
 		<div className='p-8 md:mx-[150px] my-10 flex rounded-xl flex-col border gap-8'>

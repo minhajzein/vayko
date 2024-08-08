@@ -29,14 +29,12 @@ function Signup() {
 
 	const generateOtp = async () => {
 		try {
-			const { data } = await getOtp({ contact: formik.values.mobile })
-			if (data?.success) {
+			const response = await getOtp({ contact: formik.values.mobile })
+			if (response?.data?.success) {
 				toast.success('OTP sent successfully')
 				setGenerated(true)
 			} else {
-				toast.error(
-					'Otp generation failed, please check your number or try again later'
-				)
+				toast.error(response.error.data.err_msg)
 			}
 		} catch (error) {
 			console.error(error)
@@ -68,8 +66,6 @@ function Signup() {
 			username: '',
 			email: '',
 			mobile: '',
-			password: '',
-			confirmPassword: '',
 		},
 		validationSchema: Yup.object({
 			username: Yup.string().required(),
@@ -82,15 +78,6 @@ function Signup() {
 			mobile: Yup.string()
 				.required()
 				.matches(/^[6789]\d{9}$/, 'please enter a valid mobile number'),
-			password: Yup.string()
-				.required()
-				.matches(
-					/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-					'password should contain minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character'
-				),
-			confirmPassword: Yup.string()
-				.required('please confirm your password')
-				.oneOf([Yup.ref('password')], 'entered password is not same'),
 		}),
 
 		onSubmit: async values => {
@@ -103,6 +90,7 @@ function Signup() {
 					email: values.email,
 					is_verified: verified,
 				})
+
 				if (response?.data?.success) {
 					dispatch(
 						setCredentials({
@@ -223,43 +211,7 @@ function Signup() {
 							</button>
 						</div>
 					)}
-					<div className='w-full flex flex-col'>
-						<div className='relative w-full'>
-							<input
-								type={isShow ? 'text' : 'password'}
-								name='password'
-								value={formik.values.password}
-								onChange={formik.handleChange}
-								placeholder='Enter password'
-								className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
-							/>
-							{isShow ? (
-								<BsFillEyeSlashFill
-									onClick={() => setIsShow(false)}
-									className='absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer'
-								/>
-							) : (
-								<BsFillEyeFill
-									onClick={() => setIsShow(true)}
-									className='absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer'
-								/>
-							)}
-						</div>
-						<p className='text-xs text-red-600'>{formik.errors.password}</p>
-					</div>
-					<div className='w-full flex flex-col'>
-						<input
-							type='password'
-							name='confirmPassword'
-							value={formik.values.confirmPassword}
-							onChange={formik.handleChange}
-							placeholder='confirm your password'
-							className='bg-[#FAFAFA] shadow py-1 px-2 rounded outline-[#CCCCCC]'
-						/>
-						<p className='text-xs text-red-600'>
-							{formik.errors.confirmPassword}
-						</p>
-					</div>
+
 					<button
 						type='submit'
 						disabled={isLoading}
