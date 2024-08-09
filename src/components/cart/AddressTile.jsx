@@ -6,7 +6,7 @@ import { CgSpinner } from 'react-icons/cg'
 
 //imports........................................................................................
 
-function AddressTile({ address, setShippingAddressId }) {
+function AddressTile({ address, setShippingAddressId, index }) {
 	const [isShow, setIsShow] = useState(false)
 	const [removeAddress, { isLoading }] = useRemoveAddressMutation()
 
@@ -17,6 +17,7 @@ function AddressTile({ address, setShippingAddressId }) {
 					type='radio'
 					id={address.id}
 					name='shipping_address_id'
+					defaultChecked={index === 0}
 					className='cursor-pointer'
 					onChange={e => setShippingAddressId(e.target.value)}
 					value={address.id}

@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ShippingAddress from '../../components/cart/ShippingAddress'
 import { IoFlashOutline } from 'react-icons/io5'
+import { Modal } from 'antd'
 
 //imports................................................................................................................................................................................................
 
@@ -127,52 +128,58 @@ function FastCheckout({ product }) {
 					</div>
 				)}
 			</button>
-			{isOpen && (
-				<div className='fixed top-0 left-0 z-30 w-screen md:p-10 flex h-dvh bg-white/70'>
-					<div className='m-auto flex flex-col md:h-[100%] h-[80%] md:w-[40%] w-[90%] z-50 hover:overflow-y-auto overflow-hidden scrollbar-hidden bg-white shadow-xl rounded-xl p-5'>
-						<div className='flex backdrop-blur-sm bg-white/50 w-full sticky top-0 z-10 justify-between items-center gap-5 p-5'>
-							<h1 className='font-semibold capitalize line-clamp-2'>
-								{product?.title}
-							</h1>
-							<img
-								onClick={() => setIsOpen(false)}
-								src='/svgs/tag-cross-black.svg'
-								className='cursor-pointer size-4 md:size-5'
-								alt='close'
-							/>
-						</div>
-						<div className='flex flex-col gap-3'>
-							<div className='size-full overflow-hidden rounded-lg relative'>
-								<img
-									src={product?.photos[0]}
-									className='w-full md:h-40 duration-300 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
-									alt='product'
-								/>
-							</div>
-							<div className='flex gap-4 text-2xl'>
-								<h1 className='font-bold text-[#FE2B3E]'>
-									₹{Number(product.price).toFixed()}
-								</h1>
-								<del className='opacity-50'>
-									₹{Number(product.original_price).toFixed()}
-								</del>
-							</div>
-							<ShippingAddress setShippingAddressId={setShippingAddressId} />
+			<Modal
+				className='w-full'
+				open={isOpen}
+				footer={[]}
+				closeIcon={false}
+				onClose={() => setIsOpen(false)}
+			>
+				<div className='m-auto flex flex-col w-full'>
+					<div className='flex flex-col gap-3 relative'>
+						<div className='flex py-2 justify-between gap-4 z-10 bg-white/50 backdrop-blur sticky top-0'>
+							<h1 className='md:text-xl text-lg truncate'>{product?.title}</h1>
 							<button
-								onClick={handleCheckout}
-								className='capitalize bg-[#FE2B3E] text-white p-2 rounded-full'
-								disabled={verifying || loading || isLoading}
+								className='text-[#FE2B3E]'
+								onClick={() => setIsOpen(false)}
 							>
-								{loading ? (
-									<CgSpinner className='animate-spin m-auto' />
-								) : (
-									`pay now ₹${Number(product?.price).toFixed()}`
-								)}
+								<img
+									src='/svgs/tag-cross-black.svg'
+									className='size-3 md:size-4'
+									alt=''
+								/>
 							</button>
 						</div>
+						<div className='size-full overflow-hidden rounded-lg relative'>
+							<img
+								src={product?.photos[0]}
+								className='w-full md:h-40 duration-300 rounded-lg bg-white shadow-lg shadow-gray-300 object-cover'
+								alt='product'
+							/>
+						</div>
+						<div className='flex gap-4 text-2xl'>
+							<h1 className='font-bold text-[#FE2B3E]'>
+								₹{Number(product.price).toFixed()}
+							</h1>
+							<del className='opacity-50'>
+								₹{Number(product.original_price).toFixed()}
+							</del>
+						</div>
+						<ShippingAddress setShippingAddressId={setShippingAddressId} />
+						<button
+							onClick={handleCheckout}
+							className='capitalize bg-[#FE2B3E] sticky bottom-2 shadow-xl text-white p-2 rounded-full'
+							disabled={verifying || loading || isLoading}
+						>
+							{loading ? (
+								<CgSpinner className='animate-spin m-auto' />
+							) : (
+								`pay now ₹${Number(product?.price).toFixed()}`
+							)}
+						</button>
 					</div>
 				</div>
-			)}
+			</Modal>
 		</>
 	)
 }
