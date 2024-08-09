@@ -7,10 +7,12 @@ import {
 import { useSelector } from 'react-redux'
 import { CgSpinner } from 'react-icons/cg'
 import { toast } from 'react-toastify'
+import { useEffect, useRef } from 'react'
 
 //imports................................................................................................
 
 function AddressForm({ isShow, setIsShow, address }) {
+	const formRef = useRef(null)
 	const user = useSelector(state => state.auth.user)
 	const [addAddress, { isLoading }] = useAddAnAddressMutation()
 	const [editAddress, { isLoading: editing }] = useEditAddressMutation()
@@ -68,9 +70,12 @@ function AddressForm({ isShow, setIsShow, address }) {
 			}
 		},
 	})
-
+	useEffect(() => {}, [])
 	return (
-		<div className='h-dvh w-full fixed bg-white/70 pb-24 left-0 top-0 z-50 focus flex md:flex-col md:justify-center md:items-center flex-col-reverse'>
+		<div
+			ref={formRef}
+			className='h-dvh w-full fixed bg-white md:bg-white/70 md:pb-0 pb-24 left-0 top-0 z-50 focus flex md:flex-col md:justify-center md:items-center flex-col-reverse'
+		>
 			<div
 				className={`w-full ${
 					isShow ? 'translate-y-0' : 'translate-y-full'

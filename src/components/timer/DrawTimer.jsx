@@ -112,7 +112,7 @@ function DrawTimer() {
 						</p>
 					</div>
 				</div>
-				<p className='text-sm capitalize z-40 text-center text-white md:hidden'>
+				<p className='text-sm capitalize text-center text-white md:hidden'>
 					shop and win big with vayko.
 				</p>
 				<img

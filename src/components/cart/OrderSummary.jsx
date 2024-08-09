@@ -44,6 +44,9 @@ function OrderSummary({ cartDetails, shippingAddressId }) {
 					free
 				</h1>
 			</div>
+			<h1 className='text-[#FF2A3E] text-xs text-center'>
+				Delivery within 15 to 20 days
+			</h1>
 			<hr />
 			<div className='flex justify-between text-xl font-bold'>
 				<h1 className='capitalize'>grand total</h1>
