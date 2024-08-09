@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useGetCartQuery } from '../../redux/apiSlices/cartApiSlice'
 
 //imports................................................................
 
 function Footer() {
 	const { pathname } = useLocation()
 	const user = useSelector(state => state.auth.user)
+	const { data: cartDetails, error } = useGetCartQuery(user?.id)
 
 	const navItems = [
 		{
@@ -38,11 +40,29 @@ function Footer() {
 		<div className='w-full flex z-40 justify-between md:hidden p-6 fixed bottom-0 bg-white shadow shadow-black'>
 			{navItems.map(item => (
 				<NavLink key={item.link} to={item.link}>
-					<img
-						src={pathname === item.link ? item.activeIcon : item.icon}
-						className='cursor-pointer'
-						key={item.name}
-					/>
+					{item.name === 'cart' ? (
+						<div className='relative'>
+							<div className='absolute top-0 right-0 flex -translate-y-1 bg-[#FF2A3E] size-4 text-white rounded-full text-[10px]'>
+								<p className='m-auto text-[]'>
+									{cartDetails?.cartProducts.data.reduce(
+										(acc, cur) => (acc += Number(cur.quantity)),
+										0
+									)}
+								</p>
+							</div>
+							<img
+								src={pathname === item.link ? item.activeIcon : item.icon}
+								className='cursor-pointer'
+								key={item.name}
+							/>
+						</div>
+					) : (
+						<img
+							src={pathname === item.link ? item.activeIcon : item.icon}
+							className='cursor-pointer'
+							key={item.name}
+						/>
+					)}
 				</NavLink>
 			))}
 		</div>

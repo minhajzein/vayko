@@ -74,10 +74,10 @@ function AddressForm({ isShow, setIsShow, address }) {
 			<div
 				className={`w-full ${
 					isShow ? 'translate-y-0' : 'translate-y-full'
-				} flex flex-col bg-white duration-500 md:w-[40%] md:h-[70%] overflow-y-auto scrollbar-hidden md:rounded-xl md:p-5 md:shadow`}
+				} flex flex-col bg-white duration-500 md:w-[40%] md:h-[70%] overflow-y-auto scrollbar-hidden md:rounded-xl md:p-3 md:shadow`}
 			>
 				<div className='bg-[#FE2B3E] md:bg-white w-full flex justify-between items-center p-4 rounded-tl-xl rounded-tr-xl'>
-					<h1 className='text-3xl capitalize text-white md:text-black'>
+					<h1 className='text-xl capitalize text-white md:text-black'>
 						shipping address
 					</h1>
 					<button onClick={() => setIsShow(false)}>
@@ -99,7 +99,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 							value={formik.values.name}
 							name='name'
 							onChange={formik.handleChange}
-							className='p-2 shadow shadow-black rounded'
+							className='p-2 border rounded'
 							placeholder='Enter your name'
 						/>
 						<p className='text-red-600 text-xs'>{formik.errors.name}</p>
@@ -111,7 +111,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 							name='address'
 							value={formik.values.address}
 							onChange={formik.handleChange}
-							className='p-2 shadow shadow-black rounded'
+							className='p-2 border rounded'
 							placeholder='Enter your address'
 						/>
 						<p className='text-red-600 text-xs'>{formik.errors.address}</p>
@@ -123,7 +123,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 							name='city'
 							value={formik.values.city}
 							onChange={formik.handleChange}
-							className='p-2 shadow shadow-black rounded'
+							className='p-2 border rounded'
 							placeholder='Enter your name'
 						/>
 						<p className='text-red-600 text-xs'>{formik.errors.city}</p>
@@ -135,7 +135,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 							name='pin_code'
 							value={formik.values.pin_code}
 							onChange={formik.handleChange}
-							className='p-2 shadow shadow-black rounded'
+							className='p-2 border  rounded'
 							placeholder='Enter your name'
 						/>
 						<p className='text-red-600 text-xs'>{formik.errors.pin_code}</p>
@@ -147,7 +147,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 							name='district'
 							value={formik.values.district}
 							onChange={formik.handleChange}
-							className='p-2 shadow shadow-black rounded'
+							className='p-2 border  rounded'
 							placeholder='Enter your district name'
 						/>
 						<p className='text-red-600 text-xs'>{formik.errors.district}</p>
@@ -159,7 +159,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 							name='contact'
 							value={formik.values.contact}
 							onChange={formik.handleChange}
-							className='p-2 shadow shadow-black rounded'
+							className='p-2 border rounded'
 							placeholder='Enter your number'
 						/>
 						<p className='text-red-600 text-xs'>{formik.errors.contact}</p>
