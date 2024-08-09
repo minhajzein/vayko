@@ -99,7 +99,7 @@ function CartFooter({ total, shippingAddressId, items }) {
 			<button
 				disabled={verifying || loading || isLoading}
 				onClick={handleCheckout}
-				className='bg-[#FF2A3E] py-2 px-4 rounded-lg text-white'
+				className='bg-[#FF2A3E] py-2 px-4 capitalize rounded-lg text-white'
 			>
 				{isLoading ? (
 					<CgSpinner className='animate-spin m-auto' />

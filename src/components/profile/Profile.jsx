@@ -8,7 +8,7 @@ function Profile() {
 	const user = useSelector(state => state.auth.user)
 
 	return (
-		<div className='md:px-[80px] p-10 flex-col items-center pb-24 md:pb-5'>
+		<div className='md:px-[80px] p-4 flex-col items-center pb-24 md:pb-5'>
 			<div className='grid md:grid-cols-2 grid-cols-1 gap-4 w-full'>
 				<div className='flex flex-col w-full gap-4 items-center'>
 					<div className='flex flex-col w-full gap-2'>

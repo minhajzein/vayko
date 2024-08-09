@@ -43,8 +43,7 @@ function ProductCard({ wishlist, product }) {
 					₹{Number(product.original_price).toFixed()}
 				</del>
 			</div>
-			<div className='top-4 flex items-center justify-center gap-[6px] right-4'>
-				<FastCheckout product={product} />
+			<div className='top-4 flex  flex-col items-center justify-center gap-[6px] right-4'>
 				<AddProductToCart
 					slug={product.slug}
 					title={product.title}

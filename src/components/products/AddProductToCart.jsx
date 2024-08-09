@@ -3,7 +3,6 @@ import { useAddToCartMutation } from '../../redux/apiSlices/cartApiSlice'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { CgSpinner } from 'react-icons/cg'
-import { CiShoppingCart } from 'react-icons/ci'
 
 //imports................................................................................................
 
@@ -38,14 +37,12 @@ function AddProductToCart({ slug, variant, title }) {
 		<button
 			onClick={addProductToCart}
 			disabled={isLoading}
-			className='bg-white rounded-full flex text-xs md:text-sm hover:scale-105 items-center justify-center gap-2 duration-300  text-[#FE2B3E] w-[] border border-[#FE2B3E] p-2 shadow'
+			className='bg-[#FE2B3E] rounded-full w-full flex text-xs md:text-sm hover:scale-105 items-center justify-center gap-2 duration-300  text-white border p-1 capitalize shadow'
 		>
 			{isLoading ? (
 				<CgSpinner className='animate-spin m-auto' />
 			) : (
-				<>
-					<CiShoppingCart />
-				</>
+				'add to cart'
 			)}
 		</button>
 	)
