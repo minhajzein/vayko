@@ -10,7 +10,7 @@ function ShippingAddress({ setShippingAddressId }) {
 	const [isShow, setIsShow] = useState(false)
 	const user = useSelector(state => state.auth.user)
 	const { data, isSuccess } = useGetAllAddressesQuery(user?.id)
-	if (isSuccess && data.addresses.length > 0) {
+	if (isSuccess && data.addresses.length > 0 && setShippingAddressId) {
 		setShippingAddressId(data.addresses[0].id)
 	}
 
