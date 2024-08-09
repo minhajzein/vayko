@@ -70,7 +70,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 	})
 
 	return (
-		<div className='h-dvh w-full fixed bg-white/70 left-0 top-0 z-50 focus flex md:flex-col md:justify-center md:items-center flex-col-reverse'>
+		<div className='h-dvh w-full fixed bg-white/70 pb-24 left-0 top-0 z-50 focus flex md:flex-col md:justify-center md:items-center flex-col-reverse'>
 			<div
 				className={`w-full ${
 					isShow ? 'translate-y-0' : 'translate-y-full'
