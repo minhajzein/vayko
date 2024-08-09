@@ -10,16 +10,15 @@ function ShippingAddress({ setShippingAddressId }) {
 	const [isShow, setIsShow] = useState(false)
 	const user = useSelector(state => state.auth.user)
 	const { data, isSuccess } = useGetAllAddressesQuery(user?.id)
-	console.log(data)
 	if (isSuccess && data.addresses.length > 0) {
 		setShippingAddressId(data.addresses[0].id)
 	}
+
 	return (
 		<div className='flex flex-col md:px-0 gap-2'>
 			{setShippingAddressId !== undefined && (
 				<h1 className='font-semibold text-lg p-2 capitalize'>address</h1>
 			)}
-
 			{isSuccess &&
 				data.addresses.map((address, i) => (
 					<AddressTile
