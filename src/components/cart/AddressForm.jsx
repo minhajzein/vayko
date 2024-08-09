@@ -7,12 +7,10 @@ import {
 import { useSelector } from 'react-redux'
 import { CgSpinner } from 'react-icons/cg'
 import { toast } from 'react-toastify'
-import { useEffect, useRef } from 'react'
 
 //imports................................................................................................
 
 function AddressForm({ isShow, setIsShow, address }) {
-	const formRef = useRef(null)
 	const user = useSelector(state => state.auth.user)
 	const [addAddress, { isLoading }] = useAddAnAddressMutation()
 	const [editAddress, { isLoading: editing }] = useEditAddressMutation()
@@ -70,12 +68,9 @@ function AddressForm({ isShow, setIsShow, address }) {
 			}
 		},
 	})
-	useEffect(() => {}, [])
+
 	return (
-		<div
-			ref={formRef}
-			className='h-dvh w-full fixed bg-white/70  left-0 top-0 z-50 focus flex md:flex-col md:justify-center md:items-center flex-col-reverse'
-		>
+		<div className='h-dvh w-full fixed bg-white/70  left-0 top-0 z-50 focus flex md:flex-col md:justify-center md:items-center flex-col-reverse'>
 			<div
 				className={`w-full ${
 					isShow ? 'translate-y-0' : 'translate-y-full'
@@ -98,7 +93,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 					className='flex flex-col p-4 gap-2'
 				>
 					<div className='flex flex-col'>
-						<label htmlFor='name'>fullname</label>
+						<label htmlFor='name'>Fullname</label>
 						<input
 							type='text'
 							value={formik.values.name}
@@ -110,7 +105,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 						<p className='text-red-600 text-xs'>{formik.errors.name}</p>
 					</div>
 					<div className='flex flex-col'>
-						<label htmlFor='address'>address</label>
+						<label htmlFor='address'>Address</label>
 						<input
 							type='text'
 							name='address'
@@ -122,7 +117,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 						<p className='text-red-600 text-xs'>{formik.errors.address}</p>
 					</div>
 					<div className='flex flex-col'>
-						<label htmlFor='city'>city/town</label>
+						<label htmlFor='city'>City/Town</label>
 						<input
 							type='text'
 							name='city'
@@ -134,7 +129,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 						<p className='text-red-600 text-xs'>{formik.errors.city}</p>
 					</div>
 					<div className='flex flex-col'>
-						<label htmlFor='pincode'>pincode</label>
+						<label htmlFor='pincode'>Pincode</label>
 						<input
 							type='text'
 							name='pin_code'
@@ -146,7 +141,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 						<p className='text-red-600 text-xs'>{formik.errors.pin_code}</p>
 					</div>
 					<div className='flex flex-col'>
-						<label htmlFor='district'>district</label>
+						<label htmlFor='district'>District</label>
 						<input
 							type='text'
 							name='district'
@@ -158,7 +153,7 @@ function AddressForm({ isShow, setIsShow, address }) {
 						<p className='text-red-600 text-xs'>{formik.errors.district}</p>
 					</div>
 					<div className='flex flex-col'>
-						<label htmlFor='phone number'>phone number</label>
+						<label htmlFor='phone number'>Phone Number</label>
 						<input
 							type='text'
 							name='contact'
