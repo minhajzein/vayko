@@ -5,7 +5,8 @@ import { useGetAllWinnersQuery } from '../../redux/apiSlices/winnersApiSlice'
 //imports................................................................................................
 
 function WinnersShowcase() {
-	const { data } = useGetAllWinnersQuery()
+	const { data, error } = useGetAllWinnersQuery()
+	console.log(error)
 
 	return (
 		<div className='w-full grid grid-cols-2 md:grid-cols-5 md:px-20 md:gap-4 gap-2 p-4'>

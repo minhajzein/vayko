@@ -6,12 +6,10 @@ import {
 } from '../../redux/apiSlices/authApiSlice'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
 import { useState } from 'react'
 import { CgSpinner } from 'react-icons/cg'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../redux/slices/authSlice'
-import { data } from 'autoprefixer'
 
 //imports................................................................................................
 
@@ -39,8 +37,6 @@ function Login() {
 					contact: values.mobile,
 					otp: values.otp,
 				})
-				console.log(response)
-
 				if (response.data) {
 					dispatch(
 						setCredentials({
@@ -114,7 +110,7 @@ function Login() {
 						<>
 							<div className='w-full flex flex-col'>
 								<input
-									type='text'
+									type='number'
 									name='otp'
 									value={formik.values.otp}
 									onChange={formik.handleChange}

@@ -94,7 +94,7 @@ function CartFooter({ total, shippingAddressId, items }) {
 		}
 	}
 	return (
-		<div className='w-full sticky md:hidden bottom-[80px] flex bg-[#F5F5F5] justify-between items-center p-3'>
+		<div className='w-full sticky hidden bottom-[80px] flex bg-[#F5F5F5] justify-between items-center p-3'>
 			<h1 className='font-bold'>Total ₹{total}</h1>
 			<button
 				disabled={verifying || loading || isLoading}

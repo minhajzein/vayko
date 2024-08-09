@@ -10,7 +10,7 @@ const baseQuery = fetchBaseQuery({
         headers.set('Cache-Control', 'no-cache');
         headers.set('Pragma', 'no-cache');
         headers.set('Expires', '0');
-        headers.set('Access-Control-Allow-Origin', 'http://vayko.grohance.co.in')
+        headers.set('Access-Control-Allow-Origin', '*')
         const token = getState().auth.token
         if (token) {
             headers.set("Authorization", `Bearer ${token}`)
