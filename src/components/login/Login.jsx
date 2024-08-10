@@ -1,12 +1,10 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import {
-	useLoginMutation,
-	useVerifyLoginMutation,
-} from '../../redux/apiSlices/authApiSlice'
+import { useLoginMutation } from '../../redux/apiSlices/authApiSlice'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
+import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
 import { CgSpinner } from 'react-icons/cg'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../redux/slices/authSlice'
@@ -14,30 +12,32 @@ import { setCredentials } from '../../redux/slices/authSlice'
 //imports................................................................................................
 
 function Login() {
-	const [generated, setGenerated] = useState(false)
+	const [isShow, setIsShow] = useState(false)
 	const [login, { isLoading }] = useLoginMutation()
-	const [verfyLogin, { isLoading: verifying }] = useVerifyLoginMutation()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 
 	const formik = useFormik({
 		initialValues: {
 			mobile: '',
-			otp: '',
+			password: '',
 		},
 		validationSchema: Yup.object({
 			mobile: Yup.string()
 				.required()
 				.matches(/^[6789]\d{9}$/, 'please enter a valid mobile number'),
-			otp: Yup.string().min(6).max(6).required(),
+			password: Yup.string().required(),
 		}),
 		onSubmit: async values => {
 			try {
-				const response = await verfyLogin({
+				const response = await login({
 					contact: values.mobile,
-					otp: values.otp,
+					password: values.password,
 				})
-				if (response.data) {
+
+				console.log(response)
+
+				if (response?.data?.success) {
 					dispatch(
 						setCredentials({
 							user: response.data.user,
@@ -58,18 +58,7 @@ function Login() {
 			}
 		},
 	})
-	const generateOtp = async () => {
-		if (formik.errors.mobile) return toast.error('Enter a valid mobile number')
-		const response = await login({
-			contact: formik.values.mobile,
-		})
-		if (response?.data?.success) {
-			toast.success('An OTP has been sent to your mobile number')
-			setGenerated(true)
-		} else {
-			toast.error(response.error.data.err_msg)
-		}
-	}
+
 	return (
 		<div className='w-full flex flex-col md:flex-row h-dvh'>
 			<div className='bg-[#FE2B3E] md:w-[50%] items-center gap-14 m-4 md:m-0  md:rounded-none rounded-xl overflow-hidden md:h-full flex flex-col md:p-10 p-2 justify-center relative'>
@@ -106,36 +95,34 @@ function Login() {
 						/>
 						<p className='text-xs text-red-600'>{formik.errors.mobile}</p>
 					</div>
-					{generated ? (
-						<>
-							<div className='w-full flex flex-col'>
-								<input
-									type='number'
-									name='otp'
-									value={formik.values.otp}
-									onChange={formik.handleChange}
-									placeholder='Enter otp'
-									className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
-								/>
-								<p className='text-xs text-red-600'>{formik.errors.otp}</p>
-							</div>
+					<div className='w-full flex flex-col'>
+						<div className='relative'>
+							<input
+								type={isShow ? 'text' : 'password'}
+								name='password'
+								value={formik.values.password}
+								onChange={formik.handleChange}
+								placeholder='Enter password'
+								className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
+							/>
 							<button
-								type='submit'
-								disabled={verifying}
-								className='bg-[#FE2B3E] flex justify-evenly p-1 cursor-pointer hover:scale-105 duration-300 shadow rounded capitalize text-white'
+								onClick={() => setIsShow(!isShow)}
+								type='button'
+								className='absolute top-1/2 right-2 -translate-y-1/2'
 							>
-								{verifying ? <CgSpinner className='animate-spin' /> : 'login'}
+								{isShow ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
 							</button>
-						</>
-					) : (
-						<button
-							type='button'
-							onClick={generateOtp}
-							className='bg-[#FE2B3E] flex justify-evenly p-1 cursor-pointer hover:scale-105 duration-300 shadow rounded capitalize text-white'
-						>
-							{isLoading ? <CgSpinner className='animate-spin' /> : 'get OTP'}
-						</button>
-					)}
+						</div>
+
+						<p className='text-xs text-red-600'>{formik.errors.password}</p>
+					</div>
+					<button
+						type='submit'
+						disabled={isLoading}
+						className='bg-[#FE2B3E] flex justify-evenly p-1 cursor-pointer hover:scale-105 duration-300 shadow rounded capitalize text-white'
+					>
+						{isLoading ? <CgSpinner className='animate-spin' /> : 'login'}
+					</button>
 				</form>
 				<p className='text-[#FE2B3E] text-xs md:text-sm'>
 					Don't have an account?{' '}

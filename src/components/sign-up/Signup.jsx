@@ -9,7 +9,6 @@ import {
 } from '../../redux/apiSlices/authApiSlice'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { MdVerified } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../redux/slices/authSlice'
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
@@ -17,55 +16,17 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
 //imports........................................................................................
 
 function Signup() {
-	const [generated, setGenerated] = useState(false)
 	const [isShow, setIsShow] = useState(false)
-	const [otp, setOtp] = useState('')
-	const [verified, setVerified] = useState(false)
-	const [getOtp, { isLoading: otpLoading }] = useGetOtpMutation()
-	const [verify, { isLoading: verifying }] = useVerifyOtpMutation()
 	const [signup, { isLoading }] = useSignupMutation()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-
-	const generateOtp = async () => {
-		try {
-			const response = await getOtp({ contact: formik.values.mobile })
-			if (response?.data?.success) {
-				toast.success('OTP sent successfully')
-				setGenerated(true)
-			} else {
-				toast.error(response.error.data.err_msg)
-			}
-		} catch (error) {
-			console.error(error)
-			toast.error(error.message)
-		}
-	}
-
-	const verifyOtp = async () => {
-		try {
-			if (otp === '' || otp.length < 6 || otp.length > 6)
-				return toast.error('Invalid otp')
-			const response = await verify({
-				contact: formik.values.mobile,
-				otp: otp,
-			})
-			if (response?.data?.success) {
-				setVerified(true)
-			} else {
-				toast.error(response?.error.message)
-			}
-		} catch (error) {
-			console.error(error)
-			toast.error(error.message)
-		}
-	}
 
 	const formik = useFormik({
 		initialValues: {
 			username: '',
 			email: '',
 			mobile: '',
+			password: '',
 		},
 		validationSchema: Yup.object({
 			username: Yup.string().required(),
@@ -77,19 +38,29 @@ function Signup() {
 				),
 			mobile: Yup.string()
 				.required()
-				.matches(/^[6789]\d{9}$/, 'please enter a valid mobile number'),
+				.matches(/^[6789]\d{9}$/, 'please enter a valid password number'),
+			password: Yup.string()
+				.min(8, 'password should be atleast 8 character')
+				.matches(
+					/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+					'password should contain an uppercase,a lowercase, a number and a special character'
+				)
+				.required('password is required'),
+			confirm: Yup.string()
+				.required('please confirm your password')
+				.oneOf([Yup.ref('password')], 'password must be same'),
 		}),
 
 		onSubmit: async values => {
 			try {
-				if (!verified) toast.error('please verify your phone number')
 				const response = await signup({
 					name: values.username,
 					contact: values.mobile,
 					password: values.password,
 					email: values.email,
-					is_verified: verified,
+					is_verified: true,
 				})
+				console.log(response)
 
 				if (response?.data?.success) {
 					dispatch(
@@ -163,55 +134,45 @@ function Signup() {
 								name='mobile'
 								value={formik.values.mobile}
 								onChange={formik.handleChange}
-								placeholder='Enter your mobile phone number'
+								placeholder='Enter your password phone number'
 								className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
 							/>
-							{!formik.errors.mobile &&
-								!generated &&
-								formik.values.mobile !== '' && (
-									<button
-										onClick={generateOtp}
-										type='button'
-										disabled={generated || otpLoading}
-										className='w-full h-full flex justify-center items-center rounded bg-[#FE2B3E] text-white hover:bg-black'
-									>
-										{otpLoading ? (
-											<CgSpinner className='animate-spin' />
-										) : (
-											'get otp'
-										)}
-									</button>
-								)}
-							{verified && (
-								<MdVerified className='absolute right-2 top-1/2 -translate-y-1/2 text-green-600 text-xl' />
-							)}
 						</div>
 						<p className='text-xs text-red-600'>{formik.errors.mobile}</p>
 					</div>
-					{generated && !verified && (
-						<div className='w-full flex gap-2'>
+					<div className='w-full flex flex-col'>
+						<div className='relative'>
 							<input
-								type='number'
-								value={otp}
-								onChange={e => setOtp(e.target.value)}
-								placeholder='Enter OTP'
+								type={isShow ? 'text' : 'password'}
+								name='password'
+								value={formik.values.password}
+								onChange={formik.handleChange}
+								placeholder='Enter password'
 								className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
 							/>
 							<button
-								onClick={verifyOtp}
+								onClick={() => setIsShow(!isShow)}
 								type='button'
-								disabled={verifying}
-								className='w-full flex justify-center items-center rounded bg-[#FE2B3E] text-white hover:bg-black'
+								className='absolute top-1/2 right-2 -translate-y-1/2'
 							>
-								{verifying ? (
-									<CgSpinner className='animate-spin' />
-								) : (
-									'verify otp'
-								)}
+								{isShow ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
 							</button>
 						</div>
-					)}
-
+						<p className='text-xs text-red-600'>{formik.errors.password}</p>
+					</div>
+					<div className='w-full flex flex-col'>
+						<div className='flex gap-2 relative justify-between items-center'>
+							<input
+								type='password'
+								name='confirm'
+								value={formik.values.confirm}
+								onChange={formik.handleChange}
+								placeholder='Confirm your password'
+								className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
+							/>
+						</div>
+						<p className='text-xs text-red-600'>{formik.errors.confirm}</p>
+					</div>
 					<button
 						type='submit'
 						disabled={isLoading}
