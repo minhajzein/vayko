@@ -1,12 +1,10 @@
 import WinnerCard from './WinnerCard'
-import WinnerGold from '/svgs/Gold_Star.svg'
 import { useGetAllWinnersQuery } from '../../redux/apiSlices/winnersApiSlice'
 
 //imports................................................................................................
 
 function WinnersShowcase() {
-	const { data, error } = useGetAllWinnersQuery()
-	console.log(error)
+	const { data } = useGetAllWinnersQuery()
 
 	return (
 		<div className='w-full grid grid-cols-2 md:grid-cols-5 md:px-20 md:gap-4 gap-2 p-4'>

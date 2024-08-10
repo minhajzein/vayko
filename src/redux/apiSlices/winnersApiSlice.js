@@ -6,7 +6,6 @@ const winnersApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: '/winner-list',
                 validateStatus: (response, result) => {
-                    console.log(response, result)
                     return response.status === 200 && result.success
                 }
             }),

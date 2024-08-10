@@ -5,7 +5,7 @@ import { useGetInstaLinksQuery } from '../../redux/apiSlices/socialApiSlices'
 
 function InstagramFeeds() {
 	const { data: feeds } = useGetInstaLinksQuery()
-	console.log(feeds)
+
 	return (
 		<div className='w-full grid grid-flow-col gap-2 md:gap-6 px-4 py-2 overflow-x-auto scrollbar-hidden'>
 			{feeds?.links.map(feed => (

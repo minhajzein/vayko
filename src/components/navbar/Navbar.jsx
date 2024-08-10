@@ -17,9 +17,9 @@ function Navbar() {
 	const { data: cartDetails, error } = useGetCartQuery(user?.id)
 
 	if (error && error.status === 401) {
-		dispatch(setCredentials({ user: null, token: null }))
 		localStorage.removeItem('vayko-user')
 		localStorage.removeItem('vayko-token')
+		dispatch(setCredentials({ user: null, token: null }))
 	}
 
 	return (
