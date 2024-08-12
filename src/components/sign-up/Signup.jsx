@@ -134,7 +134,7 @@ function Signup() {
 								name='mobile'
 								value={formik.values.mobile}
 								onChange={formik.handleChange}
-								placeholder='Enter your password phone number'
+								placeholder='Enter your phone number'
 								className='bg-[#FAFAFA] w-full shadow py-1 px-2 rounded outline-[#CCCCCC]'
 							/>
 						</div>

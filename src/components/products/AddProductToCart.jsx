@@ -3,13 +3,14 @@ import { useAddToCartMutation } from '../../redux/apiSlices/cartApiSlice'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { CgSpinner } from 'react-icons/cg'
+import { useNavigate } from 'react-router-dom'
 
 //imports................................................................................................
 
 function AddProductToCart({ slug, variant, title }) {
 	const user = useSelector(state => state.auth.user)
 	const [addToCart, { isLoading, error, isError }] = useAddToCartMutation()
-
+	const navigate = useNavigate()
 	const addProductToCart = async () => {
 		try {
 			if (user) {
@@ -23,7 +24,7 @@ function AddProductToCart({ slug, variant, title }) {
 				if (response.data?.success)
 					return toast.success(`You have a chance to win a scooter`)
 				if (response.error) return toast.error(response.error.message)
-			} else toast.error('Please login to use cart')
+			} else navigate('/login')
 		} catch (error) {
 			console.error(error)
 		}

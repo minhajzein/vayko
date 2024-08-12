@@ -96,7 +96,7 @@ function Login() {
 						<p className='text-xs text-red-600'>{formik.errors.mobile}</p>
 					</div>
 					<div className='w-full flex flex-col'>
-						<div className='relative'>
+						<div className='relative flex'>
 							<input
 								type={isShow ? 'text' : 'password'}
 								name='password'
