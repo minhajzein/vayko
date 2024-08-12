@@ -11,6 +11,7 @@ function AddProductToCart({ slug, variant, title }) {
 	const user = useSelector(state => state.auth.user)
 	const [addToCart, { isLoading, error, isError }] = useAddToCartMutation()
 	const navigate = useNavigate()
+
 	const addProductToCart = async () => {
 		try {
 			if (user) {
