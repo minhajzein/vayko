@@ -25,7 +25,10 @@ function AddProductToCart({ slug, variant, title }) {
 				if (response.data?.success)
 					return toast.success(`You have a chance to win a scooter`)
 				if (response.error) return toast.error(response.error.message)
-			} else navigate('/login')
+			} else {
+				toast.info('Please login and continue purchase')
+				navigate('/login')
+			}
 		} catch (error) {
 			console.error(error)
 		}
