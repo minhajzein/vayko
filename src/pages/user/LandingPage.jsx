@@ -1,4 +1,3 @@
-import Categories from '../../components/categories/Categories'
 import Footer from '../../components/footer/Footer'
 import WebFooter from '../../components/footer/WebFooter'
 import Navbar from '../../components/navbar/Navbar'
@@ -22,7 +21,6 @@ function LandingPage() {
 			<MobileBanner />
 			<DrawTimer />
 			<NextDraw />
-			<Categories title={true} />
 			<OurProducts />
 			<Winners />
 			<SocialMediaHappenings />
