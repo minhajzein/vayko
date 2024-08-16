@@ -40,14 +40,14 @@ function DrawTimer() {
 			<div className='bg-[#FF2A3E] flex flex-col md:flex-row px-9 md:px-32 gap-2 md:gap-0 md:my-5 rounded-lg w-full py-4 md:py-5 overflow-hidden justify-between items-center relative'>
 				<div className='text-white min-h-full z-20 flex flex-col md:gap-2 justify-between'>
 					<h1 className='text-xl capitalize font-semibold text-center md:text-5xl'>
-						vayko lucky gala
+						week-end offer
 					</h1>
 					<p className='md:text-2xl hidden md:block capitalize text-sm'>
 						shop and win big with vayko.
 					</p>
 				</div>
 				<div className='h-full flex gap-2 z-20'>
-					<div className='bg-white rounded-lg p-1 flex w-[50px] md:w-[100px] relative flex-col justify-center px-4 items-center text-[#FF2A3E] md:p-1'>
+					{/* <div className='bg-white rounded-lg p-1 flex w-[50px] md:w-[100px] relative flex-col justify-center px-4 items-center text-[#FF2A3E] md:p-1'>
 						<h1 className='font-bold text-xl md:text-5xl'>
 							{isLoading ? (
 								<CgSpinner className='animate-spin' />
@@ -110,14 +110,18 @@ function DrawTimer() {
 						<p className='capitalize md:bottom-1 text-xs md:text-2xl font-semibold'>
 							sec.
 						</p>
-					</div>
+					</div> */}
+					<h1 className='text-white md:text-7xl text-4xl font-bold'>
+						2 Days 500 pc
+					</h1>
 				</div>
-				<p className='text-sm capitalize text-center text-white md:hidden'>
+
+				<p className='text-sm capitalize z-10 text-center text-white md:hidden'>
 					shop and win big with vayko.
 				</p>
 				<img
 					src='/images/md-gift-box.png'
-					className='absolute animate-bounce z-10 left-0'
+					className='absolute animate-bounce left-0'
 					alt='md-gift-box'
 				/>
 				<img
