@@ -30,7 +30,7 @@ function WinnersShowcase() {
 				</div>
 			</div>
 
-			<div className='bg-white w-full p-1 md:p-4 rounded-lg flex flex-col items-center'>
+			<div className='bg-white w-full p-1 md:p-4 hidden rounded-lg md:flex flex-col items-center'>
 				<div className='relative w-full'>
 					<img
 						className='rounded-lg w-full  bg-[#FFD5DC] size-[160px]  md:h-52 object-cover'

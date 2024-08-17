@@ -6,6 +6,7 @@ import { useGetCartQuery } from '../../redux/apiSlices/cartApiSlice'
 import CartFooter from '../cart/mobile/CartFooter'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 //imports................................................................
 
@@ -18,9 +19,10 @@ function Checkout() {
 	useEffect(() => {
 		if (!user && cart.length == 0) {
 			navigate('/')
+			toast.error('Please add items to cart')
 		}
-    }, [user])
-    
+	}, [user])
+
 	return (
 		<div className='flex flex-col md:px-[80px]'>
 			<h1 className='text-center font-bold text-xl md:text-3xl md:py-4'>
