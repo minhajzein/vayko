@@ -7,7 +7,8 @@ import { useGetCartQuery } from '../../redux/apiSlices/cartApiSlice'
 function Footer() {
 	const { pathname } = useLocation()
 	const user = useSelector(state => state.auth.user)
-	const { data: cartDetails, error } = useGetCartQuery(user?.id)
+	const cart = useSelector(state => state.cart.cart)
+	const { data: cartDetails } = useGetCartQuery(user?.id)
 
 	const navItems = [
 		{
@@ -44,10 +45,12 @@ function Footer() {
 						<div className='relative'>
 							<div className='absolute top-0 right-0 flex -translate-y-1 bg-[#FF2A3E] size-4 text-white rounded-full text-[10px]'>
 								<p className='m-auto text-[]'>
-									{cartDetails?.cartProducts.data.reduce(
-										(acc, cur) => (acc += Number(cur.quantity)),
-										0
-									)}
+									{user
+										? cartDetails?.cartProducts.data.reduce(
+												(acc, cur) => (acc += Number(cur.quantity)),
+												0
+										  )
+										: cart.reduce((acc, cur) => (acc += cur.quantity), 0)}
 								</p>
 							</div>
 							<img

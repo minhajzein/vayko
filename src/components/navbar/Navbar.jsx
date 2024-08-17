@@ -11,6 +11,7 @@ import { sendLogout, setCredentials } from '../../redux/slices/authSlice'
 
 function Navbar() {
 	const [isOpen, setIsOpen] = useState(false)
+	const cart = useSelector(state => state.cart.cart)
 	const user = useSelector(state => state.auth.user)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
@@ -70,21 +71,22 @@ function Navbar() {
 						</NavLink>
 					)}
 				</ul>
-				{user && (
-					<NavLink to='/cart'>
-						<div className='relative'>
-							<img src='/svgs/shopping-cart.svg' alt='cart' />
-							<div className='absolute top-0 right-0 flex -translate-y-1 bg-[#FF2A3E] size-5 text-white rounded-full text-[12px]'>
-								<p className='m-auto'>
-									{cartDetails?.cartProducts.data.reduce(
-										(acc, cur) => (acc += Number(cur.quantity)),
-										0
-									)}
-								</p>
-							</div>
+				<NavLink to='/cart'>
+					<div className='relative'>
+						<img src='/svgs/shopping-cart.svg' alt='cart' />
+						<div className='absolute top-0 right-0 flex -translate-y-1 bg-[#FF2A3E] size-5 text-white rounded-full text-[12px]'>
+							<p className='m-auto'>
+								{!user
+									? cart.reduce((acc, cur) => (acc += cur.quantity), 0)
+									: cartDetails?.cartProducts.data.reduce(
+											(acc, cur) => (acc += Number(cur.quantity)),
+											0
+									  )}
+							</p>
 						</div>
-					</NavLink>
-				)}
+					</div>
+				</NavLink>
+
 				{user ? (
 					<div className='group relative'>
 						<img src='/images/review-profile.png' className='size-10' alt='' />
@@ -138,7 +140,7 @@ function Navbar() {
 					alt='close'
 				/>
 				<div className='w-full flex flex-col gap-4'>
-					<div className='flex flex-col'>
+					<div className='flex flex-col overflow-y-auto'>
 						{user && (
 							<div className='flex gap-4 items-center'>
 								<img

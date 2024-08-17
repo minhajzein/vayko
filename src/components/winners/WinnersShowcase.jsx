@@ -47,24 +47,6 @@ function WinnersShowcase() {
 					</p>
 				</div>
 			</div>
-
-			<div className='bg-white hidden md:flex w-full p-1 md:p-4 rounded-lg  flex-col items-center'>
-				<div className='relative w-full'>
-					<img
-						className='rounded-lg w-full  bg-[#FFD5DC] size-[160px]  md:h-52 object-cover'
-						src='/images/who-is-next.png'
-						alt='winner_pic'
-					/>
-				</div>
-				<div className='flex items-center flex-col p-1'>
-					<h1 className='text-[13px] md:text-xl font-bold capitalize'>
-						next winner?
-					</h1>
-					<p className='text-[#FF3245] md:text-sm capitalize text-[8px]'>
-						amazing prizes!
-					</p>
-				</div>
-			</div>
 		</div>
 	)
 }

@@ -18,6 +18,7 @@ function CreateOrder({ shippingAddressId, items }) {
 	const [verifyPayment, { isLoading: verifying }] = useVerifyPaymentMutation()
 	const handleCheckout = async e => {
 		try {
+			if (!user) return navigate('/checkout')
 			if (!shippingAddressId)
 				return toast.error('please select a shipping address')
 			if (user) {
@@ -31,7 +32,6 @@ function CreateOrder({ shippingAddressId, items }) {
 						items: items.map(x => x.id),
 					},
 				})
-				console.log(response)
 
 				if (response?.data?.success) {
 					var options = {

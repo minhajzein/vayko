@@ -1,16 +1,18 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAddToCartMutation } from '../../redux/apiSlices/cartApiSlice'
-import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { CgSpinner } from 'react-icons/cg'
 import { useNavigate } from 'react-router-dom'
+import { addItemToCart, incrementQuantity } from '../../redux/slices/cartSlice'
 
 //imports................................................................................................
 
-function AddProductToCart({ slug, variant, title }) {
+function AddProductToCart({ product, variant }) {
 	const user = useSelector(state => state.auth.user)
-	const [addToCart, { isLoading, error, isError }] = useAddToCartMutation()
+	const cart = useSelector(state => state.cart.cart)
+	const [addToCart, { isLoading }] = useAddToCartMutation()
 	const navigate = useNavigate()
+	const dispatch = useDispatch()
 
 	const addProductToCart = async () => {
 		try {
@@ -18,25 +20,31 @@ function AddProductToCart({ slug, variant, title }) {
 				const response = await addToCart({
 					userId: user.id,
 					credentials: {
-						slug: slug,
+						slug: product.slug,
+						quantity: 1,
 						variant_id: variant ? variant.id : null,
 					},
 				})
+
 				if (response.data?.success)
 					return toast.success(`You have a chance to win a scooter`)
 				if (response.error) return toast.error(response.error.message)
 			} else {
-				toast.info('Please login and continue purchase')
-				navigate('/login')
+				const itemIndex = cart.findIndex(x => x.id === product.id)
+
+				if (itemIndex !== -1) {
+					dispatch(incrementQuantity(product))
+					toast.success(`You have a chance to win a scooter`)
+				} else {
+					dispatch(addItemToCart(product))
+					toast.success(`You have a chance to win a scooter`)
+					navigate('/cart')
+				}
 			}
 		} catch (error) {
 			console.error(error)
 		}
 	}
-
-	useEffect(() => {
-		if (isError) toast.error(error.data.err_msg)
-	}, [error])
 
 	return (
 		<button

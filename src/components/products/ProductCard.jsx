@@ -45,8 +45,7 @@ function ProductCard({ wishlist, product }) {
 			</div>
 			<div className='top-4 flex  flex-col items-center justify-center gap-[6px] right-4'>
 				<AddProductToCart
-					slug={product.slug}
-					title={product.title}
+					product={product}
 					variantId={product.is_variable !== '0' ? product.variants : null}
 				/>
 			</div>

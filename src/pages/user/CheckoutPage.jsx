@@ -1,21 +1,19 @@
-import Cart from '../../components/cart/Cart'
+import Checkout from '../../components/checkout/Checkout'
 import Footer from '../../components/footer/Footer'
 import WebFooter from '../../components/footer/WebFooter'
 import Navbar from '../../components/navbar/Navbar'
-import DrawTimer from '../../components/timer/DrawTimer'
 
 //imports................................................................
 
-function CartPage() {
+function CheckoutPage() {
 	return (
 		<>
-			<Navbar />
-			<DrawTimer />
-			<Cart />
+            <Navbar />
+            <Checkout />
 			<Footer />
 			<WebFooter />
 		</>
 	)
 }
 
-export default CartPage
+export default CheckoutPage

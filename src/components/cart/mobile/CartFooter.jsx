@@ -12,28 +12,32 @@ import { toast } from 'react-toastify'
 
 function CartFooter({ total, shippingAddressId, items }) {
 	const user = useSelector(state => state.auth.user)
+	const cart = useSelector(state => state.cart.cart)
 	const [loading, setLoading] = useState(false)
 	const navigate = useNavigate()
 	const [createOrder, { isLoading }] = useCreateOrderMutation()
 	const [verifyPayment, { isLoading: verifying }] = useVerifyPaymentMutation()
 	const handleCheckout = async e => {
 		try {
+			if (!user) return navigate('/checkout')
 			if (!shippingAddressId)
 				return toast.error('please select a shipping address')
 			if (user) {
 				const response = await createOrder({
 					userId: user?.id,
 					credentials: {
-						total_amount: items
-							.reduce((acc, cur) => (acc += Number(cur.total)), 0)
-							.toFixed(),
+						total_amount: user
+							? items
+									.reduce((acc, cur) => (acc += Number(cur.total)), 0)
+									.toFixed()
+							: cart.reduce((acc, cur) => (acc += cur.price), 0),
 						shipping_address_id: shippingAddressId,
 						items: items.map(x => x.id),
 					},
 				})
 				if (response.data.success) {
 					var options = {
-						key: 'rzp_test_jk6BVykF0sfMd7',
+						key: 'rzp_live_9dYBXfghmDqVZl',
 						amount: response.data.total_amount * 100,
 						currency: 'INR',
 						name: 'Vayko',
@@ -94,8 +98,10 @@ function CartFooter({ total, shippingAddressId, items }) {
 		}
 	}
 	return (
-		<div className='w-full sticky bottom-[80px] md:hidden flex bg-[#F5F5F5] justify-between items-center p-3'>
-			<h1 className='font-bold'>Total ₹{total}</h1>
+		<div className='w-full sticky bottom-[90px] md:hidden flex bg-[#F5F5F5] justify-between items-center p-3'>
+			<h1 className='font-bold'>
+				Total ₹{user ? total : cart.reduce((acc, cur) => (acc += cur.price), 0)}
+			</h1>
 			<button
 				disabled={verifying || loading || isLoading}
 				onClick={handleCheckout}

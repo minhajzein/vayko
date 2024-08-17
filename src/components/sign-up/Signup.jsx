@@ -1,14 +1,10 @@
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
-import * as Yup from 'yup'
 import { CgSpinner } from 'react-icons/cg'
-import {
-	useGetOtpMutation,
-	useSignupMutation,
-	useVerifyOtpMutation,
-} from '../../redux/apiSlices/authApiSlice'
-import { useState } from 'react'
+import * as Yup from 'yup'
+import { useSignupMutation } from '../../redux/apiSlices/authApiSlice'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../redux/slices/authSlice'
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'

@@ -111,7 +111,7 @@ function DrawTimer() {
 							sec.
 						</p>
 					</div> */}
-					<h1 className='text-white md:text-7xl text-4xl font-bold'>
+					<h1 className='text-white md:text-7xl text-2xl font-bold'>
 						2 Days 500 pc
 					</h1>
 				</div>

@@ -19,11 +19,6 @@ function OrderTile({ order }) {
 					<h1>Amount : {order.product.price}</h1>
 					<h1>Quantity : {order.quantity}</h1>
 				</div>
-				<div className='flex flex-col gap-2'>
-					{order.raffle_code.split(',').map((code, i) => (
-						<RaffleCode raffleCode={code} key={i} />
-					))}
-				</div>
 			</div>
 		</div>
 	)

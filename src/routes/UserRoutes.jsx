@@ -16,6 +16,7 @@ import TermsAndConditionsPage from '../pages/user/TermsAndConditionsPage'
 import RequireAuth from '../components/private/RequireAuth'
 import RefundPolicyPage from '../pages/user/RefundPolicyPage'
 import PublicRoute from '../components/public-route/PublicRoute'
+import CheckoutPage from '../pages/user/CheckoutPage'
 
 //imports.................................................................
 
@@ -31,13 +32,14 @@ function UserRoutes() {
 			<Route path='privacy-policy' element={<PrivacyPolicyPage />} />
 			<Route path='terms-and-conditions' element={<TermsAndConditionsPage />} />
 			<Route path='refund-policy' element={<RefundPolicyPage />} />
+			<Route path='cart' element={<CartPage />} />
+			<Route path='checkout' element={<CheckoutPage />} />
 			<Route element={<PublicRoute />}>
 				<Route path='login' element={<LoginPage />} />
 				<Route path='sign-up' element={<SignupPage />} />
 			</Route>
 			<Route element={<RequireAuth />}>
 				<Route path='wishlist' element={<WishlistPage />} />
-				<Route path='cart' element={<CartPage />} />
 				<Route path='orders' element={<OrderPage />} />
 				<Route path='profile' element={<ProfilePage />} />
 			</Route>
