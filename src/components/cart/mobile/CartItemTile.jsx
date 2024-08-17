@@ -4,11 +4,11 @@ import Delete from '/svgs/Delete.svg'
 import IncrementQuantity from '../IncrementQuantity'
 import { useRemoveFromCartMutation } from '../../../redux/apiSlices/cartApiSlice'
 import { CgSpinner } from 'react-icons/cg'
-import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import {
 	decrementQuantity,
 	incrementQuantity,
+	removeItem,
 } from '../../../redux/slices/cartSlice'
 
 //imports................................................................
@@ -18,12 +18,6 @@ function CartItemTile({ product }) {
 	const dispatch = useDispatch()
 
 	const [removeFromCart, { isLoading: removing }] = useRemoveFromCartMutation()
-
-	const removeItem = id => {
-		const cart = JSON.parse(localStorage.getItem('cart'))
-		const filteredCart = cart.filter(x => x.id !== id)
-		localStorage.setItem('cart', JSON.stringify(filteredCart))
-	}
 
 	const incrementQuant = () => {
 		if (product.stock > 0) {
@@ -49,7 +43,7 @@ function CartItemTile({ product }) {
 				/>
 				<button
 					onClick={() =>
-						user ? removeFromCart(product?.id) : removeItem(product.id)
+						user ? removeFromCart(product?.id) : dispatch(removeItem(product))
 					}
 					disabled={removing}
 					className='absolute bottom-2 left-2 bg-white p-2 shadow rounded-full'
