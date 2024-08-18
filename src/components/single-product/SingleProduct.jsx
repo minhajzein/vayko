@@ -120,7 +120,11 @@ function SingleProduct() {
 							<AddProductToCart
 								slug={data.product.slug}
 								title={data.product.title}
-								variant={data.product.is_variable === '0' ? null : variants[0]}
+								variant={
+									data.product.is_variable === '0'
+										? null
+										: data.product.variants[0]
+								}
 							/>
 						</div>
 					</div>
