@@ -81,40 +81,6 @@ function SingleProduct() {
 							</h1>
 						</div>
 
-						{data.product.is_variable !== '0' && (
-							<div className='hidden md:flex flex-col gap-5'>
-								<div className='flex gap-5'>
-									<h1 className='text-4xl'>Size :</h1>
-									<select
-										name='size'
-										className='outline rounded-2xl px-2 py-1'
-										id='size'
-									>
-										<option className='' value='M'>
-											M
-										</option>
-										<option className='' value='M'>
-											S
-										</option>
-										<option className='' value='M'>
-											L
-										</option>
-										<option className='' value='M'>
-											XL
-										</option>
-									</select>
-								</div>
-								<div className='flex gap-5 items-end'>
-									<h1 className='text-4xl'>Colour :</h1>
-									<div className='flex'>
-										<div className='bg-[#CFC829] size-9 rounded-full border-2 border-white'></div>
-										<div className='bg-[#CF2929] size-9 rounded-full -translate-x-3 border-2 border-white'></div>
-										<div className='bg-[#86CF29] size-9 rounded-full -translate-x-6 border-2 border-white'></div>
-										<div className='bg-[#29A7CF] size-9 rounded-full -translate-x-9 border-2 border-white'></div>
-									</div>
-								</div>
-							</div>
-						)}
 						<div className='gap-3 hidden md:flex'>
 							<FastCheckout product={data.product} />
 							<AddProductToCart
