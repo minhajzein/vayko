@@ -30,6 +30,7 @@ function CartItemTile({ product }) {
 	const decrementQuant = () => {
 		if (product.quantity > 1) dispatch(decrementQuantity(product))
 	}
+	console.log(product)
 
 	return (
 		<div className='h-24 w-full flex gap-2'>

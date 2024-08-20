@@ -11,7 +11,7 @@ import PersistLogin from './components/Persist/PersistLogin'
 function App() {
 	return (
 		<Provider store={store}>
-			<BrowserRouter>
+			<BrowserRouter future={{ v7_startTransition: true }}>
 				<Routes>
 					<Route element={<PersistLogin />}>
 						<Route path='/*' element={<UserRoutes />} />

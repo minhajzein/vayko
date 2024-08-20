@@ -7,10 +7,10 @@ import { useGetSingleProductQuery } from '../../redux/apiSlices/productApiSlice'
 
 function ProductFooter({ product }) {
 	return (
-		<div className='w-full hidden gap-2  z-30 justify-around p-5 sticky bottom-0 bg-white shadow shadow-black'>
+		<div className='w-full flex gap-2  z-30 justify-around p-5 sticky bottom-0 bg-white shadow shadow-black'>
 			<FastCheckout product={product} />
 			<AddProductToCart
-				slug={product.slug}
+				product={product}
 				title={product.title}
 				variantId={product.is_variable !== '0' ? product.variants : null}
 			/>

@@ -1,6 +1,3 @@
-import React from 'react'
-import { FaStarOfLife } from 'react-icons/fa'
-
 //imports................................................................................................
 
 function NextDraw() {

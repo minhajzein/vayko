@@ -81,11 +81,9 @@ function SingleProduct() {
 							</h1>
 						</div>
 
-						<div className='gap-3 hidden md:flex'>
-							<FastCheckout product={data.product} />
+						<div className='gap-3 md:flex'>
 							<AddProductToCart
-								slug={data.product.slug}
-								title={data.product.title}
+								product={data?.product}
 								variant={
 									data.product.is_variable === '0'
 										? null
