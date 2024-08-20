@@ -16,7 +16,6 @@ function Navbar() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const { data: cartDetails, error } = useGetCartQuery(user?.id)
-	console.log(cart)
 
 	if (error && error.status === 401) {
 		localStorage.removeItem('vayko-user')

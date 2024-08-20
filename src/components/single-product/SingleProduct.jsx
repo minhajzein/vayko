@@ -81,7 +81,7 @@ function SingleProduct() {
 							</h1>
 						</div>
 
-						<div className='gap-3 md:flex'>
+						<div className='gap-3 hidden md:block md:flex'>
 							<AddProductToCart
 								product={data?.product}
 								variant={
