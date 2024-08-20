@@ -36,7 +36,7 @@ function DrawTimer() {
 	}, [isSuccess, seconds])
 
 	return (
-		<div className='md:px-[80px] p-4 md:p-0 w-full'>
+		<div className='md:px-[80px] p-4 md:p-0 w-full hidden'>
 			<div className='bg-[#FF2A3E] flex flex-col md:flex-row px-9 md:px-32 gap-2 md:gap-0 md:my-5 rounded-lg w-full py-4 md:py-5 overflow-hidden justify-between items-center relative'>
 				<div className='text-white min-h-full z-20 flex flex-col md:gap-2 justify-between'>
 					<h1 className='text-xl capitalize font-semibold text-center md:text-5xl'>
