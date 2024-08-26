@@ -18,7 +18,7 @@ function OurProducts() {
 			<div className='w-full flex flex-col'>
 				<div className='w-full flex justify-between'>
 					<h1 className='capitalize font-bold text-xs md:text-2xl text-[#FF2A3E]'>
-						Win a Scooter 🛵 With Every Purchase!
+						Win a Big With Every Purchase!
 					</h1>
 					<Link
 						to='/products'
