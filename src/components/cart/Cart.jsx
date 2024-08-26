@@ -1,6 +1,5 @@
 import CartShowCase from './mobile/CartShowCase'
 import CartTable from './CartTable'
-import ShippingAddress from './ShippingAddress'
 
 //imports................................................................
 

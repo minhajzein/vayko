@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { CgSpinner } from 'react-icons/cg'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -98,7 +98,7 @@ function CartFooter({ total, shippingAddressId, items }) {
 		}
 	}
 	return (
-		<div className='w-full sticky bottom-[90px] md:hidden flex bg-[#F5F5F5] justify-between items-center p-3'>
+		<div className='w-full sticky bottom-[90px] hidden bg-[#F5F5F5] justify-between items-center p-3'>
 			<h1 className='font-bold'>
 				Total ₹{user ? total : cart.reduce((acc, cur) => (acc += cur.price), 0)}
 			</h1>
