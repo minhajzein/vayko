@@ -11,7 +11,7 @@ function OrderSummaryWithoutUser() {
 	const cart = useSelector(state => state.cart.cart)
 
 	return (
-		<div className='rounded-xl border mb-24 md:mb-0 w-full p-5 flex flex-col gap-4'>
+		<div className='rounded-xl md:border mb-24 md:mb-0 w-full md:p-5 flex flex-col gap-4'>
 			<h1 className='capitalize text-2xl opacity-60 font-semibold'>
 				order summary
 			</h1>

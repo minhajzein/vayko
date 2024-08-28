@@ -24,10 +24,10 @@ const orderApiSlice = apiSlice.injectEndpoints({
             })
         }),
         createOrder: builder.mutation({
-            query: (data) => ({
-                url: `/order/${data.userId}`,
+            query: (credentials) => ({
+                url: `/order`,
                 method: 'POST',
-                body: { ...data.credentials }
+                body: { ...credentials }
             }),
             invalidatesTags: ['Orders', 'Cart']
         }),

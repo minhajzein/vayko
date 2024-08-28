@@ -1,26 +1,17 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { CgSpinner } from 'react-icons/cg'
-import {
-	useAddAnAddressMutation,
-	useEditAddressMutation,
-} from '../../redux/apiSlices/addressApiSlice'
-import { useSelector } from 'react-redux'
 
 //imports................................................................................................
 
-function AddressForm({ address }) {
-	const user = useSelector(state => state.auth.user)
-	const [addAddress, { isLoading }] = useAddAnAddressMutation()
-	const [editAddress, { isLoading: editing }] = useEditAddressMutation()
+function AddressForm() {
 	const formik = useFormik({
 		initialValues: {
-			name: address?.name || '',
-			contact: address?.contact || '',
-			city: address?.city || '',
-			pin_code: address?.pin_code || '',
-			address: address?.address || '',
-			district: address?.district || '',
+			name: '',
+			contact: '',
+			city: '',
+			pin_code: '',
+			address: '',
+			district: '',
 		},
 		enableReinitialize: true,
 		validationSchema: Yup.object({
@@ -37,31 +28,6 @@ function AddressForm({ address }) {
 		}),
 		onSubmit: async values => {
 			try {
-				if (address === undefined) {
-					const response = await addAddress({
-						userId: user?.id,
-						credentials: values,
-					})
-					if (response?.data?.success) {
-						formik.resetForm()
-						toast.success('New address added successfully')
-						setIsShow(false)
-					} else {
-						toast.error(response.error.data.err_msg)
-					}
-				} else {
-					const response = await editAddress({
-						id: address.id,
-						credentials: values,
-					})
-					if (response?.data?.success) {
-						formik.resetForm()
-						toast.success('Address updated successfully')
-						setIsShow(false)
-					} else {
-						toast.error(response.error.data.err_msg)
-					}
-				}
 			} catch (error) {
 				console.error(error)
 			}
@@ -69,7 +35,7 @@ function AddressForm({ address }) {
 	})
 	return (
 		<form onSubmit={formik.handleSubmit} className='flex w-full flex-col gap-2'>
-			<h1 className='capitalize text-center italic text-[#FF2A3E]'>
+			<h1 className='text-center italic text-[#FF2A3E]'>
 				Please provide a shipping address
 			</h1>
 			<div className='flex flex-col'>
@@ -144,13 +110,6 @@ function AddressForm({ address }) {
 				/>
 				<p className='text-red-600 text-xs'>{formik.errors.contact}</p>
 			</div>
-			<button
-				type='submit'
-				disabled={isLoading || editing}
-				className='bg-[#FE2B3E] flex justify-center items-center rounded-xl text-white text-lg py-2'
-			>
-				{isLoading || editing ? <CgSpinner className='animate-spin' /> : 'save'}
-			</button>
 		</form>
 	)
 }

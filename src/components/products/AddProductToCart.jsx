@@ -34,13 +34,10 @@ function AddProductToCart({ product, variant }) {
 
 				if (itemIndex !== -1) {
 					dispatch(incrementQuantity(product))
-					toast.success(`You have a chance to win a scooter`)
+					toast.success(`${product.title} added to cart`)
 				} else {
-					console.log(product)
-
 					dispatch(addItemToCart(product))
-					toast.success(`You have a chance to win a scooter`)
-					navigate('/cart')
+					toast.success(`${product.title} added to cart`)
 				}
 			}
 		} catch (error) {
@@ -52,7 +49,7 @@ function AddProductToCart({ product, variant }) {
 		<button
 			onClick={addProductToCart}
 			disabled={isLoading}
-			className='bg-[#FE2B3E] hidden rounded-full w-full  text-xs md:text-sm hover:scale-105 items-center justify-center gap-2 duration-300  text-white border p-1 capitalize shadow'
+			className='bg-[#FE2B3E] flex rounded-full w-full  text-xs md:text-sm hover:scale-105 items-center justify-center gap-2 duration-300  text-white border p-1 capitalize shadow'
 		>
 			{isLoading ? (
 				<CgSpinner className='animate-spin m-auto' />
